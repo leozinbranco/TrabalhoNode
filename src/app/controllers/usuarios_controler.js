@@ -33,4 +33,4 @@ class UsuariosControler
         }
     }
 }
-module.exports = UsuariosControler;
+module.exports = new UsuariosControler;

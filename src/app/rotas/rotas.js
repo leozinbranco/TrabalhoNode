@@ -1,17 +1,19 @@
 // chamando a classe clientes_dao
 const ClientesDAO = require('../BD/produtos_dao');
-const loginControlador = require('../BD/usuarios_controler');
-const loginControl = new loginDAO();
+const usuarioControlador = require('../controllers/usuarios_controler');
+//const usuarioControl = new usuarioControlador();
+
 // instância do BD configurado
 var db = require('../../config/database');
+//const loginControl = new loginControlador(db)
+//const loginControler = new UsuariosControler();
 
 module.exports = (app) => {
 
     //***************ROTAS***************//
    
-    app.get('/', loginControlador.  )
-        
-    });
+    app.get('/', usuarioControlador.exibeFormAcesso()
+    );
 
     /* ROTA COM /clientes */
     
