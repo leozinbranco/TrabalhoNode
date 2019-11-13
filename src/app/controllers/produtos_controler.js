@@ -1,20 +1,32 @@
 const ProdutosDAO = require('../BD/produtos_dao');
 
 //instancia db
-var db = require('../../config/database');
+var db = require('../../config/database');  //da onde vem as tables do mer (CRUDGE)
 
 class ProdutosControler
 {
 
     listaProdutos(){
         return function(req, res){
-
-            if(req.session.login) {
-            const produtosDAO = new ProdutosDAO(db);
+            ProdutosDAO.listagemProdutos(function(error, resultados){
+                console.log(resultados)
+                res.marko(   
+                require('../views/produtos/listagemProduto.marko'),  // manda o marko
+                {
+                    
+                    produtos: resultados[0] // produtos 
+                    
+                }
+            ) 
+            })
+           
+        };
+        
+      /*      if(req.session.login) {  //se eu estiver logado 
             produtosDAO.listagemProdutos(function (error,resultados)
             {
         res.marko(   
-                require('../views/produtos/listagemProdutos.marko'),  // manda o marko
+                require('../views/produtos/listagemProduto.marko'),  // manda o marko
                 {
                     produtos: resultados // produtos 
                     
@@ -27,9 +39,10 @@ class ProdutosControler
             res.send("<h1>Primeiramente meu irmao faz login ai</h1>")     //response 
         }
     
-    }}
+    }}*/
 
 
+        }
 }
 
-module.exports = ProdutosControler;
+module.exports = new ProdutosControler;

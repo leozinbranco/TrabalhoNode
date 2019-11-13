@@ -1,7 +1,11 @@
+//instancia db
+var db = require('../../config/database');  //da onde vem as tables do mer (CRUDGE)
+
+
 class ProdutosDAO 
 {
   // construtor da classe
-    constructor(db) 
+    constructor() 
     {
         this._db = db;
     }
@@ -9,11 +13,14 @@ class ProdutosDAO
     // método de SELECT  na tabela Produtos
     listagemProdutos(callback) 
     {
-      var sql =  'SELECT codProduto, preco, descricao, foto, codCategoria FROM PRODUTOS';
+      var sql =  'SELECT codProduto, preco, descricao, foto, codCategoria FROM PRODUTO';
       console.log(sql);
       this._db.query(sql,
-          (erro, resultados) =>
+          (erro, resultados) =>{
               callback(erro, resultados)
+              console.log(resultados)
+              console.log(erro) //null nenhum erro
+            }
       )
     }
   
@@ -25,4 +32,4 @@ class ProdutosDAO
 }
 
 
-module.exports = ProdutosDAO;
+module.exports = new ProdutosDAO;

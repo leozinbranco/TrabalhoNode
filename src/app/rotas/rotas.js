@@ -1,6 +1,9 @@
 // chamando a classe clientes_dao
-const ClientesDAO = require('../BD/produtos_dao');
+const produtosDAO = require('../BD/produtos_dao');
+const produtosControlador = require('../controllers/produtos_controler');
+
 const usuarioControlador = require('../controllers/usuarios_controler');
+
 //const usuarioControl = new usuarioControlador();
 
 // instância do BD configurado
@@ -15,20 +18,12 @@ module.exports = (app) => {
     app.get('/', usuarioControlador.exibeFormAcesso()
     );
 
-    /* ROTA COM /clientes */
     
     
-    app.get('/produtos', function(req,res) {   
-    const clienteDAO = new ClientesDAO(db);   
-        clienteDAO.listagemClientes(function(error, dados, fields) {       
-            res.marko(
-                    require('../views/produtos/listagemProdutos.marko'),
-                    {
-                    clientes: dados
-                    }
-            );
-        });
-    });
+    
+    app.get('/produtos',produtosControlador.listaProdutos());
+
+    
     
 
 
