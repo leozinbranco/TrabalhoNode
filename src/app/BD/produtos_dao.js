@@ -23,6 +23,38 @@ class ProdutosDAO
             }
       )
     }
+
+    listagemProdutosCarrinho(callback)
+    {
+      var sql = 'SELECT nome, qtde, valTotal, valTotalCompra FROM CARRINHO';
+      console.log(sql);
+      this._db.query(sql,
+        (erro, resultados) =>{
+          callback(erro, resultados)
+          console.log(resultados)
+          console.log(erro) //null nenhum erro 
+        })
+    }
+
+    
+
+    inserirProdutosCarrinhoBD(produto)
+    {
+      return new Promise((resolve, reject) => {
+        var sql = "insert into carrinho() values('"+ produto.cpf + "', '" + produto.codProduto + "', '" + produto.qtde + "', '"+
+        produto.preco + "', '" + produto.valTotalCompra + "')"
+        this._db.query(sqlInsere,
+          function(erro) {
+            if(erro)
+            {
+              console.log(erro);
+              return reject("Inclusão de produto no carrinho NÃO foi concluida!"); 
+            }
+            resolve();
+          })
+    
+      });
+    }
   
 
     

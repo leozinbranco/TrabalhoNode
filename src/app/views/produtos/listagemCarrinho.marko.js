@@ -2,7 +2,7 @@
 "use strict";
 
 var marko_template = module.exports = require("marko/src/html").t(__filename),
-    marko_componentType = "/trabNodeJS19367$1.0.0/src/app/views/produtos/listagemProduto.marko",
+    marko_componentType = "/trabNodeJS19367$1.0.0/src/app/views/produtos/listagemCarrinho.marko",
     components_helpers = require("marko/src/runtime/components/helpers"),
     marko_renderer = components_helpers.r,
     marko_defineComponent = components_helpers.c,
@@ -22,7 +22,7 @@ function render(input, out, __component, component, state) {
 
   component_globals_tag({}, out);
 
-  out.w("<table class=\"table table-bordered\"><thead><tr><th>Produto</th><th>Categoria</th><th>Foto</th><th>Preço</th></tr></thead><tbody id=\"myTable\">");
+  out.w("<form action=\"/\"><table class=\"table table-bordered\"> <thead><tr><th>Produto</th><th>Foto</th><th>Preço Unitário</th><th>Preço Total</th></tr></thead><tbody id=\"myTable\">");
 
   var $for$0 = 0;
 
@@ -31,16 +31,16 @@ function render(input, out, __component, component, state) {
 
     out.w("<tr><td>" +
       marko_escapeXml(produtos.descricao) +
-      "</td><td>" +
-      marko_escapeXml(produtos.codCategoria) +
       "</td><td><img" +
       marko_attr("src", produtos.foto) +
-      " alt=\"prod\" class=\"img-thumbnail\" style=\"height: auto; width: 20%; align-self: center;\"><button type=\"button\" class=\"btn btn-secondary\" style=\" margin-left: 150px;\" href=\"/inserirProdCarrinhos\">Adicionar Ao Carrinho</button> </td><td style=\"padding-left: 15px;\" 15px>" +
+      " alt=\"prod\" class=\"img-thumbnail\" style=\"height: auto; width: 20%; align-self: center;\"></td><td style=\"padding-left: 15px;\" 15px>" +
+      marko_escapeXml(produtos.preco) +
+      "</td><td style=\"padding-left: 15px;\" 15px>" +
       marko_escapeXml(produtos.preco) +
       "</td></tr>");
   });
 
-  out.w("</tbody></table><nav aria-label=\"Navegação de pagina\"><ul class=\"pagination justify-content-center\"><li class=\"page-item disabled\"><a class=\"page-link\" href=\"#\" tabindex=\"-1\">Anterior</a></li><li class=\"page-item\"><a class=\"page-link\" href=\"#\">1</a></li><li class=\"page-item\"><a class=\"page-link\" href=\"#\">2</a></li><li class=\"page-item\"><a class=\"page-link\" href=\"#\">3</a></li><li class=\"page-item\"><a class=\"page-link\" href=\"#\">Próximo</a></li></ul></nav>");
+  out.w("</tbody></table></form><nav aria-label=\"Navegação de pagina\"><ul class=\"pagination justify-content-center\"><li class=\"page-item disabled\"><a class=\"page-link\" href=\"#\" tabindex=\"-1\">Anterior</a></li><li class=\"page-item\"><a class=\"page-link\" href=\"#\">1</a></li><li class=\"page-item\"><a class=\"page-link\" href=\"#\">2</a></li><li class=\"page-item\"><a class=\"page-link\" href=\"#\">3</a></li><li class=\"page-item\"><a class=\"page-link\" href=\"#\">Próximo</a></li></ul></nav>");
 
   init_components_tag({}, out);
 
@@ -57,7 +57,7 @@ marko_template._ = marko_renderer(render, {
 marko_template.Component = marko_defineComponent({}, marko_template._);
 
 marko_template.meta = {
-    id: "/trabNodeJS19367$1.0.0/src/app/views/produtos/listagemProduto.marko",
+    id: "/trabNodeJS19367$1.0.0/src/app/views/produtos/listagemCarrinho.marko",
     tags: [
       "marko/src/core-tags/components/component-globals-tag",
       "marko/src/core-tags/components/init-components-tag",

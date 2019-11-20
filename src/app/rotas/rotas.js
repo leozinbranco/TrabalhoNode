@@ -1,5 +1,6 @@
 // chamando a classe clientes_dao
 const produtosDAO = require('../BD/produtos_dao');
+
 const produtosControlador = require('../controllers/produtos_controler');
 
 const usuarioControlador = require('../controllers/usuarios_controler');
@@ -23,8 +24,9 @@ module.exports = (app) => {
     
     app.get('/produtos',produtosControlador.listaProdutos());
 
+    app.get('/carrinho',produtosControlador.listaProdutosCarrinho());
     
-    
+    app.post('/validaAcessoUsuario',usuarioControlador.validaAcessoUsuario());
 
 
 

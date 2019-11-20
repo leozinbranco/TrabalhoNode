@@ -1,0 +1,71 @@
+<html>
+    <head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <title>Lista dos Produtos</title>
+    </head>
+
+     <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+            <ul class="navbar-nav">
+                <li class="nav-item active">
+                <a class="nav-link mx-4" href="/">Login</a>
+                </li>
+                <li class="nav-item">
+                <i class="fas fa-shopping-cart"></i>
+                <a class="nav-link mx-4" href="/produtos">Listagem Produtos</a>
+                
+                </li>
+                <li class="nav-item">
+                <a class="nav-link mx-4" href="/carrinho">Carrinho</a>
+                </li>
+                <li class="nav-item">
+                <a class="nav-link mx-4" href="#">Disabled</a>
+                </li>
+            </ul>
+            
+    </nav>
+
+    <body>
+ 
+    <form action="/">
+    <table class="table table-bordered"> 
+    <thead>
+    <tr>
+        <th>Produto</th>
+        <th>Foto</th>
+        <th>Preço Unitário</th>
+        <th>Preço Total</th>
+    </tr>
+    </thead>
+    <tbody id="myTable">
+    <tr for(produtos in data.produtos)>
+        <td >${produtos.descricao}</td>
+        <td><img src=produtos.foto alt="prod" class="img-thumbnail" style="height: auto; width: 20%; align-self: center;" ></td>
+        <td style="padding-left: 15px;" 15px; >${produtos.preco}</td>
+        <td style="padding-left: 15px;" 15px; >${produtos.preco}</td>
+    </tr>
+    </tbody>
+    </table>
+    </form>
+
+
+
+    <nav aria-label="Navegação de pagina">
+  <ul class="pagination justify-content-center">
+    <li class="page-item disabled">
+      <a class="page-link" href="#" tabindex="-1">Anterior</a>
+    </li>
+    <li class="page-item"><a class="page-link" href="#">1</a></li>
+    <li class="page-item"><a class="page-link" href="#">2</a></li>
+    <li class="page-item"><a class="page-link" href="#">3</a></li>
+    <li class="page-item">
+      <a class="page-link" href="#">Próximo</a>
+    </li>
+  </ul>
+</nav>
+
+
+    </body>
+
+    
+</html>
