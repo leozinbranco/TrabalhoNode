@@ -14,7 +14,7 @@ class ProdutosControler
                 require('../views/produtos/listagemProduto.marko'),  // manda o marko
                 {
                     
-                    produtos: resultados[0] // produtos 
+                    produtos: resultados // produtos 
                     
                 }
             ) 

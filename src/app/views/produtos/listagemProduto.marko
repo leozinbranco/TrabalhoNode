@@ -37,11 +37,13 @@
       </tr>
     </thead>
     <tbody id="myTable">
-      <tr>
-        <td>${data.produtos.descricao}</td>
-        <td>${data.produtos.codCategoria}</td>
-        <td><img src=data.produtos.foto alt="prod" class="img-thumbnail" ></td>
-        <td>${data.produtos.preco}</td>
+      <tr for(produtos in data.produtos)>
+        <td >${produtos.descricao}</td>
+        <td>${produtos.codCategoria}</td>
+        <td ><img src=produtos.foto alt="prod" class="img-thumbnail" style="height: auto; width: 20%; align-self: center;" >
+          <button type="button" class="btn btn-secondary" style=" margin-left: 150px;">Adicionar Ao Carrinho</button> 
+        </td>
+        <td style="padding-left: 15px;" 15px; >${produtos.preco}</td>
       </tr>
     </tbody>
   </table>

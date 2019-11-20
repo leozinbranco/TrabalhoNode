@@ -1,4 +1,4 @@
-// Compiled using marko@4.18.13 - DO NOT EDIT
+// Compiled using marko@4.18.25 - DO NOT EDIT
 "use strict";
 
 var marko_template = module.exports = require("marko/src/html").t(__filename),
@@ -9,6 +9,7 @@ var marko_template = module.exports = require("marko/src/html").t(__filename),
     marko_helpers = require("marko/src/runtime/html/helpers"),
     marko_loadTag = marko_helpers.t,
     component_globals_tag = marko_loadTag(require("marko/src/core-tags/components/component-globals-tag")),
+    marko_forEach = marko_helpers.f,
     marko_escapeXml = marko_helpers.x,
     marko_attr = marko_helpers.a,
     init_components_tag = marko_loadTag(require("marko/src/core-tags/components/init-components-tag")),
@@ -21,15 +22,25 @@ function render(input, out, __component, component, state) {
 
   component_globals_tag({}, out);
 
-  out.w("<table class=\"table table-bordered\"><thead><tr><th>Produto</th><th>Categoria</th><th>Foto</th><th>Preço</th></tr></thead><tbody id=\"myTable\"><tr><td>" +
-    marko_escapeXml(data.produtos.descricao) +
-    "</td><td>" +
-    marko_escapeXml(data.produtos.codCategoria) +
-    "</td><td><img" +
-    marko_attr("src", data.produtos.foto) +
-    " alt=\"prod\" class=\"img-thumbnail\"></td><td>" +
-    marko_escapeXml(data.produtos.preco) +
-    "</td></tr></tbody></table><nav aria-label=\"Navegação de pagina\"><ul class=\"pagination justify-content-center\"><li class=\"page-item disabled\"><a class=\"page-link\" href=\"#\" tabindex=\"-1\">Anterior</a></li><li class=\"page-item\"><a class=\"page-link\" href=\"#\">1</a></li><li class=\"page-item\"><a class=\"page-link\" href=\"#\">2</a></li><li class=\"page-item\"><a class=\"page-link\" href=\"#\">3</a></li><li class=\"page-item\"><a class=\"page-link\" href=\"#\">Próximo</a></li></ul></nav>");
+  out.w("<table class=\"table table-bordered\"><thead><tr><th>Produto</th><th>Categoria</th><th>Foto</th><th>Preço</th></tr></thead><tbody id=\"myTable\">");
+
+  var $for$0 = 0;
+
+  marko_forEach(data.produtos, function(produtos) {
+    var $keyScope$0 = "[" + (($for$0++) + "]");
+
+    out.w("<tr><td>" +
+      marko_escapeXml(produtos.descricao) +
+      "</td><td>" +
+      marko_escapeXml(produtos.codCategoria) +
+      "</td><td><img" +
+      marko_attr("src", produtos.foto) +
+      " alt=\"prod\" class=\"img-thumbnail\" style=\"height: auto; width: 20%; align-self: center;\"><button type=\"button\" class=\"btn btn-secondary\" style=\" margin-left: 150px;\">Adicionar Ao Carrinho</button> </td><td style=\"padding-left: 15px;\" 15px>" +
+      marko_escapeXml(produtos.preco) +
+      "</td></tr>");
+  });
+
+  out.w("</tbody></table><nav aria-label=\"Navegação de pagina\"><ul class=\"pagination justify-content-center\"><li class=\"page-item disabled\"><a class=\"page-link\" href=\"#\" tabindex=\"-1\">Anterior</a></li><li class=\"page-item\"><a class=\"page-link\" href=\"#\">1</a></li><li class=\"page-item\"><a class=\"page-link\" href=\"#\">2</a></li><li class=\"page-item\"><a class=\"page-link\" href=\"#\">3</a></li><li class=\"page-item\"><a class=\"page-link\" href=\"#\">Próximo</a></li></ul></nav>");
 
   init_components_tag({}, out);
 
