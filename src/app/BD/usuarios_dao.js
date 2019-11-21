@@ -18,7 +18,6 @@ validaAcessoUsuario(cpf,senha) {
             console.log(resultado);
             if (resultado.length > 0) {
             var dados = resultado.length;
-          
             console.log("fez login");
             resolve(resultado);
             console.log(resultado);
@@ -35,7 +34,7 @@ registrarNovoUsuario(usuario)
 {
     return new Promise((resolve, response) => {
         var sqlInsere = "INSERT INTO usuario(cpf, senha, nome, celular, telFixo, email, dataNasc) VALUES('" + usuario.cpf +"', '" + usuario.senha + "', '" + usuario.nome+ 
-        "', '"+ usuario.celular+ "', '" +usuario.telFixo + "', '"+ usuario.email + "', '" + usuario.dataNasc +"')";
+        "', '"+ usuario.celular + "', '" +usuario.telFixo + "', '"+ usuario.email + "', '" + usuario.dataNasc +"')";
         this._db.query(sqlInsere,
             function(erro) {
             if(erro)

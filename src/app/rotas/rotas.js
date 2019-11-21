@@ -20,7 +20,7 @@ module.exports = (app) => {
     );
 
     
-    
+    app.get('/registroUsuario',usuarioControlador.exibeFormRegistroUsuario());
     
     app.get('/produtos',produtosControlador.listaProdutos());
 
@@ -29,6 +29,10 @@ module.exports = (app) => {
     //app.get()
     
     app.post('/validaAcessoUsuario',usuarioControlador.validaAcessoUsuarioLogin());
+
+    app.post('/registroUsuarioBD',usuarioControlador.inserirUsuario());
+
+    
 
 
 

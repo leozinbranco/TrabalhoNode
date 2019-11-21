@@ -15,6 +15,14 @@ class UsuariosControler
         }
     }
 
+    exibeFormRegistroUsuario() {
+        return function(req, res){
+            res.marko(
+            require('../views/usuarios/registrarUsuario.marko'));
+        
+        }
+    }
+
 
     validaAcessoUsuarioCarrinho() {
         return function(req, res) {
@@ -59,13 +67,11 @@ class UsuariosControler
         inserirUsuario()
         {
             return function(req, res){
-                if (req.session.cpf) {
-                    res.marko(
-                        UsuariosDAO.registrarNovoUsuario(),
-                        require('../views/clientes/login.marko'));
-            }
-            else { res.send("<h1>Algo deu errado no Registro de Usuario!</h1>");  }
+                        UsuariosDAO.registrarNovoUsuario(req.body)
+                        .then(res.redirect('/'))
+                        .catch(erro => console.log(erro));
+                    
             }
         }
-}
+    }
 module.exports = new UsuariosControler;
