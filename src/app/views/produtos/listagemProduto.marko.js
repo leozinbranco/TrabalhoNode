@@ -37,7 +37,7 @@ function render(input, out, __component, component, state) {
       marko_attr("src", produtos.foto) +
       " alt=\"prod\" class=\"img-thumbnail\" style=\"height: auto; width: 20%; align-self: center;\"><button type=\"button\" class=\"btn btn-secondary\" style=\" margin-left: 150px;\" href=\"/inserirProdCarrinhos\">Adicionar Ao Carrinho</button> </td><td style=\"padding-left: 15px;\" 15px>" +
       marko_escapeXml(produtos.preco) +
-      "</td></tr>");
+      "$</td></tr>");
   });
 
   out.w("</tbody></table><nav aria-label=\"Navegação de pagina\"><ul class=\"pagination justify-content-center\"><li class=\"page-item disabled\"><a class=\"page-link\" href=\"#\" tabindex=\"-1\">Anterior</a></li><li class=\"page-item\"><a class=\"page-link\" href=\"#\">1</a></li><li class=\"page-item\"><a class=\"page-link\" href=\"#\">2</a></li><li class=\"page-item\"><a class=\"page-link\" href=\"#\">3</a></li><li class=\"page-item\"><a class=\"page-link\" href=\"#\">Próximo</a></li></ul></nav>");

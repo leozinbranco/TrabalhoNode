@@ -18,8 +18,10 @@ validaAcessoUsuario(cpf,senha) {
             console.log(resultado);
             if (resultado.length > 0) {
             var dados = resultado.length;
+          
             console.log("fez login");
-            resolve(dados);
+            resolve(resultado);
+            console.log(resultado);
             }
             else { 
                 console.log(erro);

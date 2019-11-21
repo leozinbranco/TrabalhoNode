@@ -9,6 +9,8 @@ class ProdutosControler
 
     listaProdutos(){
         return function(req, res){
+
+        
             ProdutosDAO.listagemProdutos(function(error, resultados){
                 console.log(resultados)
                 res.marko(   
@@ -20,12 +22,13 @@ class ProdutosControler
                 }
             ) 
             })
-        }  
+        }
     };
 
     listaProdutosCarrinho()
     {
         return function(req, res){
+            if (req.session.login){
             ProdutosDAO.listagemProdutosCarrinho(function(error, resultados){
                 console.log(resultados)
                 res.marko(
@@ -35,6 +38,10 @@ class ProdutosControler
                 }
                 )
             })
+        }
+        else{
+            res.send("<h1>PRIMEIRAMENTE MEU IRMAO FAZ LOGIN AE </h1>");
+        }
         }
     }
 

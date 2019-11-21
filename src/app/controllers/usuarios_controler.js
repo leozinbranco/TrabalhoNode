@@ -16,7 +16,7 @@ class UsuariosControler
     }
 
 
-    validaAcessoUsuario() {
+    validaAcessoUsuarioCarrinho() {
         return function(req, res) {
             UsuariosDAO.validaAcessoUsuario(req.body.cpf,req.body.senha)
                 .then(dados => {
@@ -24,6 +24,7 @@ class UsuariosControler
                         // criando 2 variaveis de sessao: CPF e SENHA
                         req.session.cpf = req.body.cpf;
                         req.session.senha = req.body.senha;
+                        req.session.login = dados
                         console.log("Variavel de Sessao CPF = " + req.session.cpf);
                         console.log("Variavel de Sessao SENHA = " + req.session.senha);
                         res.redirect('/carrinho');
@@ -32,6 +33,28 @@ class UsuariosControler
             .catch(erro => res.redirect('/'));
             }
         }
+
+    validaAcessoUsuarioLogin() {
+        return function(req, res) {
+            console.log(dados);
+            UsuariosDAO.validaAcessoUsuario(req.body.cpf,req.body.senha)
+                .then( dados => {
+                    if (dados.length > 0) {
+                        // criando 2 variaveis de sessao: CPF e SENHA
+                        req.session.cpf = req.body.cpf;
+                        req.session.senha = req.body.senha;
+                        req.session.login = dados.cpf;
+                        console.log("Variavel de Sessao CPF = " + req.session.cpf);
+                        console.log("Variavel de Sessao SENHA = " + req.session.senha);
+                        res.redirect('/login');
+                        alert('Logado com sucesso!');
+                    }
+            })
+            
+            .catch(erro => res.redirect('/'));
+            console.log('Erro no login ');
+            }
+    }
 
         inserirUsuario()
         {
