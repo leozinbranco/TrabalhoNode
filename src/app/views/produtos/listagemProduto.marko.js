@@ -1,4 +1,4 @@
-// Compiled using marko@4.18.25 - DO NOT EDIT
+// Compiled using marko@4.18.13 - DO NOT EDIT
 "use strict";
 
 var marko_template = module.exports = require("marko/src/html").t(__filename),
@@ -18,7 +18,7 @@ var marko_template = module.exports = require("marko/src/html").t(__filename),
 function render(input, out, __component, component, state) {
   var data = input;
 
-  out.w("<html><head><link rel=\"stylesheet\" href=\"https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css\" integrity=\"sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T\" crossorigin=\"anonymous\"><script src=\"https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js\" integrity=\"sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM\" crossorigin=\"anonymous\"></script><title>Lista dos Produtos</title></head><nav class=\"navbar navbar-expand-sm bg-dark navbar-dark\"><ul class=\"navbar-nav\"><li class=\"nav-item active\"><a class=\"nav-link mx-4\" href=\"/\">Login</a></li><li class=\"nav-item\"><i class=\"fas fa-shopping-cart\"></i><a class=\"nav-link mx-4\" href=\"/produtos\">Listagem Produtos</a></li><li class=\"nav-item\"><a class=\"nav-link mx-4\" href=\"/carrinho\">Carrinho</a></li><li class=\"nav-item\"><a class=\"nav-link mx-4\" href=\"#\">Disabled</a></li></ul></nav><body>");
+  out.w("<html><head><link rel=\"stylesheet\" href=\"https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css\" integrity=\"sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T\" crossorigin=\"anonymous\"><script src=\"https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js\" integrity=\"sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM\" crossorigin=\"anonymous\"></script><title>Lista dos Produtos</title></head><nav class=\"navbar navbar-expand-sm bg-dark navbar-dark\"><ul class=\"navbar-nav\"><li class=\"nav-item active\"><a class=\"nav-link mx-4\" href=\"/\">Login</a></li><li class=\"nav-item\"><i class=\"fas fa-shopping-cart\"></i><a class=\"nav-link mx-4\" href=\"/produtos\">Listagem Produtos</a></li><li class=\"nav-item\"><a class=\"nav-link mx-4\" href=\"/carrinho\">Carrinho</a></li><li class=\"nav-item\"><a class=\"nav-link mx-4\" href=\"#\">Itens Pedidos</a></li><li class=\"nav-item\"><a class=\"nav-link mx-4\" href=\"/registroUsuario\">Registre-se</a></li></ul></nav><body>");
 
   component_globals_tag({}, out);
 
@@ -35,7 +35,7 @@ function render(input, out, __component, component, state) {
       marko_escapeXml(produtos.codCategoria) +
       "</td><td><img" +
       marko_attr("src", produtos.foto) +
-      " alt=\"prod\" class=\"img-thumbnail\" style=\"height: auto; width: 20%; align-self: center;\"><button type=\"button\" class=\"btn btn-secondary\" style=\" margin-left: 150px;\" href=\"/inserirProdCarrinhos\">Adicionar Ao Carrinho</button> </td><td style=\"padding-left: 15px;\" 15px>" +
+      " alt=\"prod\" class=\"img-thumbnail\" style=\"height: auto; width: 20%; align-self: center;\"><button type=\"button\" class=\"btn btn-secondary\" style=\" margin-left: 150px;\" href=\"/inserirProdCarrinhos\">Adicionar Ao Carrinho</button> </td><td style=\"padding-left: 15px;\">" +
       marko_escapeXml(produtos.preco) +
       "$</td></tr>");
   });
@@ -44,7 +44,7 @@ function render(input, out, __component, component, state) {
 
   init_components_tag({}, out);
 
-  await_reorderer_tag({}, out, __component, "43");
+  await_reorderer_tag({}, out, __component, "46");
 
   out.w("</body></html>");
 }

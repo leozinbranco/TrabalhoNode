@@ -32,7 +32,6 @@ class UsuariosControler
                         // criando 2 variaveis de sessao: CPF e SENHA
                         req.session.cpf = req.body.cpf;
                         req.session.senha = req.body.senha;
-                        req.session.login = dados
                         console.log("Variavel de Sessao CPF = " + req.session.cpf);
                         console.log("Variavel de Sessao SENHA = " + req.session.senha);
                         res.redirect('/carrinho');
@@ -51,7 +50,6 @@ class UsuariosControler
                         // criando 2 variaveis de sessao: CPF e SENHA
                         req.session.cpf = req.body.cpf;
                         req.session.senha = req.body.senha;
-                        req.session.login = dados.cpf;
                         console.log("Variavel de Sessao CPF = " + req.session.cpf);
                         console.log("Variavel de Sessao SENHA = " + req.session.senha);
                         res.redirect('/login');

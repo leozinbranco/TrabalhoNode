@@ -1,4 +1,5 @@
 const ProdutosDAO = require('../BD/produtos_dao');
+const UsuariosDAO = require('../BD/usuarios_dao');
 const UsuariosControler = require('../controllers/produtos_controler');
 
 //instancia db
@@ -28,7 +29,8 @@ class ProdutosControler
     listaProdutosCarrinho()
     {
         return function(req, res){
-            if (req.session.login){
+            UsuariosDAO.validaAcessoUsuario(req.body.cpf,req.body.senha);
+            if (req.session.cpf){
             ProdutosDAO.listagemProdutosCarrinho(function(error, resultados){
                 console.log(resultados)
                 res.marko(
