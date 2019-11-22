@@ -42,7 +42,6 @@ class ClientesControler
 
 
     listaDadosClientes() {
-        // require, response 
         return function (req, res) {
             const idDoCliente = req.params.id;
             const clienteDAO = new ClientesDAO(db);

@@ -19,14 +19,11 @@
                 <a class="nav-link mx-4" href="/carrinho">Carrinho</a>
                 </li>
                 <li class="nav-item">
-                <a class="nav-link mx-4" href="#">Itens Pedidos</a>
-                </li>
-                <li class="nav-item">
-                <a class="nav-link mx-4" href="/registroUsuario">Registre-se</a>
+                <a class="nav-link mx-4" href="#">Disabled</a>
                 </li>
             </ul>
             
-            </nav>
+    </nav>
 
     <body>
 
@@ -36,18 +33,16 @@
     <tr>
         <th>Produto</th>
         <th>Foto</th>
-        <th>Quantidade</th>
         <th>Preço Unitário</th>
         <th>Preço Total</th>
     </tr>
     </thead>
     <tbody id="myTable">
-    <tr for(produtosCarrinho in data.produtosCarrinho)>
-        <td >${produtosCarrinho.nome}</td>
-        <td><img src=produtosCarrinho.foto alt="prod" class="img-thumbnail" style="height: auto; width: 20%; align-self: center;" ></td>
-        <td style="padding-left: 15px;" 15px; >${produtosCarrinho.qtde}</td>
-        <td style="padding-left: 15px;" 15px; >${produtosCarrinho.valTotal}</td>
-        <td style="padding-left: 15px;" 15px; >${produtosCarrinho.valTotalCompra}</td>
+    <tr for(produtos in data.produtos)>
+        <td >${produtos.descricao}</td>
+        <td><img src=produtos.foto alt="prod" class="img-thumbnail" style="height: auto; width: 20%; align-self: center;" ></td>
+        <td style="padding-left: 15px;" 15px; >${produtos.preco}</td>
+        <td style="padding-left: 15px;" 15px; >${produtos.preco}</td>
     </tr>
     </tbody>
     </table>
