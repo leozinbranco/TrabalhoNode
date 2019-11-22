@@ -30,8 +30,9 @@ class ProdutosControler
         return function(req, res){
           //  if (req.session.login){
             ProdutosDAO.listagemProdutosCarrinho(function(error, resultados){
-                console.log("RESULTADOS ========>   " + resultados);
+                console.log("RESULTADOS ========>   " + resultados[0]);
                 res.marko(
+                
                     require('../views/produtos/listagemCarrinho.marko'),
                 {
                     produtosCarrinho: resultados  //produtosCarrinho = resultado da consulta
@@ -72,7 +73,7 @@ class ProdutosControler
             ProdutosDAO.excluirProdutoCarrinho(id_produto),
             console.log(id_produto + "<==============   ID PRODUTO"),
             require('../views/produtos/listagemCarrinho.marko')
-            res.redirect('/carrinho');
+            res.redirect('/produtos');
         }
     }
 }

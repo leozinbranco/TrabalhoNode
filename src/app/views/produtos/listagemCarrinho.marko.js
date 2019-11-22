@@ -1,4 +1,4 @@
-// Compiled using marko@4.18.25 - DO NOT EDIT
+// Compiled using marko@4.18.13 - DO NOT EDIT
 "use strict";
 
 var marko_template = module.exports = require("marko/src/html").t(__filename),
@@ -22,33 +22,33 @@ function render(input, out, __component, component, state) {
 
   component_globals_tag({}, out);
 
-  out.w("<form action=\"/\"><table class=\"table table-bordered\"> <thead><tr><th>Produto</th><th>Foto</th><th>Quantidade</th><th>Preço Unitário</th><th>Preço Total</th><th></th></tr></thead><tbody id=\"myTable\">");
+  out.w("<table class=\"table table-bordered\"> <thead><tr><th>Produto</th><th>Foto</th><th>Quantidade</th><th>Preço Unitário</th><th>Preço Total</th><th></th></tr></thead><tbody id=\"myTable\">");
 
   var $for$0 = 0;
 
   marko_forEach(data.produtosCarrinho, function(produtosCarrinho) {
     var $keyScope$0 = "[" + (($for$0++) + "]");
 
-    out.w("<tr><td>" +
+    out.w("<tr><form" +
+      marko_attr("action", "/removeProdutoCarrinho/" + produtosCarrinho.codProdCarrinho) +
+      " method=\"get\"><td>" +
       marko_escapeXml(produtosCarrinho.nome) +
       "</td><td><img" +
       marko_attr("src", produtosCarrinho.foto) +
-      " alt=\"prod\" class=\"img-thumbnail\" style=\"height: auto; width: 20%; align-self: center;\"></td><td style=\"padding-left: 15px;\" 15px>" +
+      " alt=\"prod\" class=\"img-thumbnail\" style=\"height: auto; width: 20%; align-self: center;\"></td><td style=\"padding-left: 15px;\">" +
       marko_escapeXml(produtosCarrinho.qtde) +
-      "</td><td style=\"padding-left: 15px;\" 15px>" +
+      "</td><td style=\"padding-left: 15px;\">" +
       marko_escapeXml(produtosCarrinho.valTotal) +
-      "</td><td style=\"padding-left: 15px;\" 15px>" +
+      "</td><td style=\"padding-left: 15px;\">" +
       marko_escapeXml(produtosCarrinho.valTotalCompra) +
-      "</td><td><a" +
-      marko_attr("href", "/removeProdutoCarrinho/" + produtosCarrinho.codProdCarrinho) +
-      "><button type=\"submit\" class=\"btn btn-secondary\" style=\" margin-left: 150px;\">Remover Produto</button></a></td></tr>");
+      "</td><td><a><button type=\"submit\" class=\"btn btn-secondary mx-auto\" style=\" margin-left: 80px; height: 50 px; align-self: center;\">Remover Produto</button></a></td></form></tr>");
   });
 
-  out.w("</tbody></table></form><nav aria-label=\"Navegação de pagina\"><ul class=\"pagination justify-content-center\"><li class=\"page-item disabled\"><a class=\"page-link\" href=\"#\" tabindex=\"-1\">Anterior</a></li><li class=\"page-item\"><a class=\"page-link\" href=\"#\">1</a></li><li class=\"page-item\"><a class=\"page-link\" href=\"#\">2</a></li><li class=\"page-item\"><a class=\"page-link\" href=\"#\">3</a></li><li class=\"page-item\"><a class=\"page-link\" href=\"#\">Próximo</a></li></ul></nav>");
+  out.w("</tbody></table><nav aria-label=\"Navegação de pagina\"><ul class=\"pagination justify-content-center\"><li class=\"page-item disabled\"><a class=\"page-link\" href=\"#\" tabindex=\"-1\">Anterior</a></li><li class=\"page-item\"><a class=\"page-link\" href=\"#\">1</a></li><li class=\"page-item\"><a class=\"page-link\" href=\"#\">2</a></li><li class=\"page-item\"><a class=\"page-link\" href=\"#\">3</a></li><li class=\"page-item\"><a class=\"page-link\" href=\"#\">Próximo</a></li></ul></nav>");
 
   init_components_tag({}, out);
 
-  await_reorderer_tag({}, out, __component, "51");
+  await_reorderer_tag({}, out, __component, "52");
 
   out.w("</body></html>");
 }

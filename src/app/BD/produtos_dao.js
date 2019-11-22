@@ -27,7 +27,7 @@ class ProdutosDAO
     listagemProdutosCarrinho(callback)
     {
       console.log("=============ENTROU EM LISTAGEMPRODUTOSCARRINHO==============");
-      var sql = 'SELECT nome, qtde, valTotal, valTotalCompra, codProdCarrinho FROM CARRINHO';
+      var sql = 'SELECT nome, qtde, valTotal, valTotalCompra, codProdCarrinho,foto FROM CARRINHO';
       console.log(sql);
       this._db.query(sql,
         (erro, resultados) =>{

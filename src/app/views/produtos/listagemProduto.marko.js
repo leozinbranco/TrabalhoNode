@@ -1,4 +1,4 @@
-// Compiled using marko@4.18.25 - DO NOT EDIT
+// Compiled using marko@4.18.13 - DO NOT EDIT
 "use strict";
 
 var marko_template = module.exports = require("marko/src/html").t(__filename),
@@ -37,7 +37,7 @@ function render(input, out, __component, component, state) {
       marko_attr("src", produtos.foto) +
       " alt=\"prod\" class=\"img-thumbnail\" style=\"height: auto; width: 20%; align-self: center;\"><a" +
       marko_attr("href", "/inserirProdCarrinhos/" + produtos.codProduto) +
-      "><button type=\"submit\" class=\"btn btn-secondary\" style=\" margin-left: 150px;\">Adicionar Ao Carrinho</button></a></td><td style=\"padding-left: 15px;\" 15px>" +
+      "><button type=\"submit\" class=\"btn btn-secondary\" style=\" margin-left: 150px;\">Adicionar Ao Carrinho</button></a></td><td style=\"padding-left: 15px;\">" +
       marko_escapeXml(produtos.preco) +
       "$</td></tr>");
   });
@@ -46,7 +46,7 @@ function render(input, out, __component, component, state) {
 
   init_components_tag({}, out);
 
-  await_reorderer_tag({}, out, __component, "46");
+  await_reorderer_tag({}, out, __component, "47");
 
   out.w("</body></html>");
 }

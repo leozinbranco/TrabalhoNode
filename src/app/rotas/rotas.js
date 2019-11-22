@@ -15,9 +15,7 @@ var db = require('../../config/database');
 module.exports = (app) => {
 
     //***************ROTAS***************//
-    app.get('/', usuarioControlador.exibeFormAcesso()
-    );
-
+    app.get('/', usuarioControlador.exibeFormAcesso());
     
     app.get('/registroUsuario',usuarioControlador.exibeFormRegistroUsuario());
     
@@ -26,8 +24,11 @@ module.exports = (app) => {
     app.get('/carrinho',produtosControlador.listaProdutosCarrinho());
 
     //app.get()
-    app.get('/removeProdutoCarrinho/:codProdCarrinho',produtosControlador.excluirProdutoCarrinho());
-
+    app.get('/removeProdutoCarrinho/:codProdCarrinho',function(){
+        console.log("ELE TA VINDO AQ OU N");
+    });
+    //,produtosControlador.excluirProdutoCarrinho());
+    
     app.post('/validaAcessoUsuario',usuarioControlador.validaAcessoUsuarioLogin());
 
     app.post('/registroUsuarioBD',usuarioControlador.inserirUsuario());

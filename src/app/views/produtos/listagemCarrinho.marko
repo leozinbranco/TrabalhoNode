@@ -30,7 +30,7 @@
 
     <body>
 
-    <form action="/">
+    
     <table class="table table-bordered"> 
     <thead>
     <tr>
@@ -44,22 +44,23 @@
     </thead>
     <tbody id="myTable">
     <tr for(produtosCarrinho in data.produtosCarrinho)>
+    <form action="/removeProdutoCarrinho/${produtosCarrinho.codProdCarrinho}" method="get">
         <td >${produtosCarrinho.nome}</td>
         <td><img src=produtosCarrinho.foto alt="prod" class="img-thumbnail" style="height: auto; width: 20%; align-self: center;" ></td>
-        <td style="padding-left: 15px;" 15px; >${produtosCarrinho.qtde}</td>
-        <td style="padding-left: 15px;" 15px; >${produtosCarrinho.valTotal}</td>
-        <td style="padding-left: 15px;" 15px; >${produtosCarrinho.valTotalCompra}</td>
+        <td style="padding-left: 15px;" >${produtosCarrinho.qtde}</td>
+        <td style="padding-left: 15px;" >${produtosCarrinho.valTotal}</td>
+        <td style="padding-left: 15px;">${produtosCarrinho.valTotalCompra}</td>
         <td>
-            <a href="/removeProdutoCarrinho/${produtosCarrinho.codProdCarrinho}">
-            <button type="submit" class="btn btn-secondary" style=" margin-left: 150px;"  >Remover Produto</button>
+            <a>
+            <button type="submit" class="btn btn-secondary mx-auto" style=" margin-left: 80px; height: 50 px; align-self: center;"  >Remover Produto</button>
             </a>
         </td>
-        
+    </form>
 
     </tr>
     </tbody>
     </table>
-    </form>
+    
 
 
 
