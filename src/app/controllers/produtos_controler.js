@@ -29,17 +29,7 @@ class ProdutosControler
     listaProdutosCarrinho()
     {
         return function(req, res){
-<<<<<<< HEAD
-<<<<<<< HEAD
 
-            UsuariosDAO.validaAcessoUsuario(req.body.cpf,req.body.senha);
-            //if (req.session.cpf){
-=======
-            if (req.session.login){
->>>>>>> parent of 467f010... consegui aparecer o carrinho
-=======
-            if (req.session.login){
->>>>>>> parent of 467f010... consegui aparecer o carrinho
             ProdutosDAO.listagemProdutosCarrinho(function(error, resultados){
                 console.log(resultados)
                 res.marko(
