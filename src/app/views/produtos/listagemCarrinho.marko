@@ -39,6 +39,7 @@
         <th>Quantidade</th>
         <th>Preço Unitário</th>
         <th>Preço Total</th>
+        <th></th>
     </tr>
     </thead>
     <tbody id="myTable">
@@ -48,6 +49,13 @@
         <td style="padding-left: 15px;" 15px; >${produtosCarrinho.qtde}</td>
         <td style="padding-left: 15px;" 15px; >${produtosCarrinho.valTotal}</td>
         <td style="padding-left: 15px;" 15px; >${produtosCarrinho.valTotalCompra}</td>
+        <td>
+            <a href="/removeProdutoCarrinho/${produtosCarrinho.codProdCarrinho}">
+            <button type="submit" class="btn btn-secondary" style=" margin-left: 150px;"  >Remover Produto</button>
+            </a>
+        </td>
+        
+
     </tr>
     </tbody>
     </table>

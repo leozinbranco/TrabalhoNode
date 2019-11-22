@@ -27,7 +27,7 @@ class ProdutosDAO
     listagemProdutosCarrinho(callback)
     {
       console.log("=============ENTROU EM LISTAGEMPRODUTOSCARRINHO==============");
-      var sql = 'SELECT nome, qtde, valTotal, valTotalCompra FROM CARRINHO';
+      var sql = 'SELECT nome, qtde, valTotal, valTotalCompra, codProdCarrinho FROM CARRINHO';
       console.log(sql);
       this._db.query(sql,
         (erro, resultados) =>{
@@ -62,6 +62,24 @@ class ProdutosDAO
             resolve();
           })
     
+      });
+    }
+
+    excluirProdutosCarrinhoBD(idProduto)
+    {
+      return new Promise((resolve, reject) => {
+        sqlExclui = "delete * from carrinho where codProduto = " + idProduto + "";
+        this._db.query(sqlExclui,
+          function(erro){
+            if(erro)
+            {
+              console.log(erro);
+              return reject("Inclusão de produto no carrinho NÃO foi concluida!");
+            }
+            console.log("DEU RESOLVE NO EXCLUIR!!!!!!!!!!!");
+            resolve();
+          })
+
       });
     }
   

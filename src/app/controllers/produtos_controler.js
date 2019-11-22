@@ -63,6 +63,18 @@ class ProdutosControler
             }
             
     }
+
+    excluirProdutoCarrinho()
+    {
+        return function(req, res){
+            console.log("/n/n/n============== ENTROU NO EXCLUI PRODUTO CARRINHO ===============/n/n/n");
+            const id_produto = req.params.idProd;
+            ProdutosDAO.excluirProdutoCarrinho(id_produto),
+            console.log(id_produto + "<==============   ID PRODUTO"),
+            require('../views/produtos/listagemCarrinho.marko')
+            res.redirect('/carrinho');
+        }
+    }
 }
     
       /*      if(req.session.login) {  //se eu estiver logado 

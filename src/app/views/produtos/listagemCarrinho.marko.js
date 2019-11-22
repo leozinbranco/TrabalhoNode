@@ -22,7 +22,7 @@ function render(input, out, __component, component, state) {
 
   component_globals_tag({}, out);
 
-  out.w("<form action=\"/\"><table class=\"table table-bordered\"> <thead><tr><th>Produto</th><th>Foto</th><th>Quantidade</th><th>Preço Unitário</th><th>Preço Total</th></tr></thead><tbody id=\"myTable\">");
+  out.w("<form action=\"/\"><table class=\"table table-bordered\"> <thead><tr><th>Produto</th><th>Foto</th><th>Quantidade</th><th>Preço Unitário</th><th>Preço Total</th><th></th></tr></thead><tbody id=\"myTable\">");
 
   var $for$0 = 0;
 
@@ -39,14 +39,16 @@ function render(input, out, __component, component, state) {
       marko_escapeXml(produtosCarrinho.valTotal) +
       "</td><td style=\"padding-left: 15px;\" 15px>" +
       marko_escapeXml(produtosCarrinho.valTotalCompra) +
-      "</td></tr>");
+      "</td><td><a" +
+      marko_attr("href", "/removeProdutoCarrinho/" + produtosCarrinho.codProdCarrinho) +
+      "><button type=\"submit\" class=\"btn btn-secondary\" style=\" margin-left: 150px;\">Remover Produto</button></a></td></tr>");
   });
 
   out.w("</tbody></table></form><nav aria-label=\"Navegação de pagina\"><ul class=\"pagination justify-content-center\"><li class=\"page-item disabled\"><a class=\"page-link\" href=\"#\" tabindex=\"-1\">Anterior</a></li><li class=\"page-item\"><a class=\"page-link\" href=\"#\">1</a></li><li class=\"page-item\"><a class=\"page-link\" href=\"#\">2</a></li><li class=\"page-item\"><a class=\"page-link\" href=\"#\">3</a></li><li class=\"page-item\"><a class=\"page-link\" href=\"#\">Próximo</a></li></ul></nav>");
 
   init_components_tag({}, out);
 
-  await_reorderer_tag({}, out, __component, "47");
+  await_reorderer_tag({}, out, __component, "51");
 
   out.w("</body></html>");
 }
