@@ -18,25 +18,27 @@ var marko_template = module.exports = require("marko/src/html").t(__filename),
 function render(input, out, __component, component, state) {
   var data = input;
 
-  out.w("<html><head><link rel=\"stylesheet\" href=\"https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css\" integrity=\"sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T\" crossorigin=\"anonymous\"><script src=\"https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js\" integrity=\"sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM\" crossorigin=\"anonymous\"></script><title>Lista dos Produtos</title></head><nav class=\"navbar navbar-expand-sm bg-dark navbar-dark\"><ul class=\"navbar-nav\"><li class=\"nav-item active\"><a class=\"nav-link mx-4\" href=\"/\">Login</a></li><li class=\"nav-item\"><i class=\"fas fa-shopping-cart\"></i><a class=\"nav-link mx-4\" href=\"/produtos\">Listagem Produtos</a></li><li class=\"nav-item\"><a class=\"nav-link mx-4\" href=\"/carrinho\">Carrinho</a></li><li class=\"nav-item\"><a class=\"nav-link mx-4\" href=\"#\">Disabled</a></li></ul></nav><body>");
+  out.w("<html><head><link rel=\"stylesheet\" href=\"https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css\" integrity=\"sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T\" crossorigin=\"anonymous\"><script src=\"https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js\" integrity=\"sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM\" crossorigin=\"anonymous\"></script><title>Lista dos Produtos</title></head><nav class=\"navbar navbar-expand-sm bg-dark navbar-dark\"><ul class=\"navbar-nav\"><li class=\"nav-item active\"><a class=\"nav-link mx-4\" href=\"/\">Login</a></li><li class=\"nav-item\"><i class=\"fas fa-shopping-cart\"></i><a class=\"nav-link mx-4\" href=\"/produtos\">Listagem Produtos</a></li><li class=\"nav-item\"><a class=\"nav-link mx-4\" href=\"/carrinho\">Carrinho</a></li><li class=\"nav-item\"><a class=\"nav-link mx-4\" href=\"#\">Itens Pedidos</a></li><li class=\"nav-item\"><a class=\"nav-link mx-4\" href=\"/registroUsuario\">Registre-se</a></li></ul></nav><body>");
 
   component_globals_tag({}, out);
 
-  out.w("<form action=\"/\"><table class=\"table table-bordered\"> <thead><tr><th>Produto</th><th>Foto</th><th>Preço Unitário</th><th>Preço Total</th></tr></thead><tbody id=\"myTable\">");
+  out.w("<form action=\"/\"><table class=\"table table-bordered\"> <thead><tr><th>Produto</th><th>Foto</th><th>Quantidade</th><th>Preço Unitário</th><th>Preço Total</th></tr></thead><tbody id=\"myTable\">");
 
   var $for$0 = 0;
 
-  marko_forEach(data.produtos, function(produtos) {
+  marko_forEach(data.produtosCarrinho, function(produtosCarrinho) {
     var $keyScope$0 = "[" + (($for$0++) + "]");
 
     out.w("<tr><td>" +
-      marko_escapeXml(produtos.descricao) +
+      marko_escapeXml(produtosCarrinho.nome) +
       "</td><td><img" +
-      marko_attr("src", produtos.foto) +
+      marko_attr("src", produtosCarrinho.foto) +
       " alt=\"prod\" class=\"img-thumbnail\" style=\"height: auto; width: 20%; align-self: center;\"></td><td style=\"padding-left: 15px;\" 15px>" +
-      marko_escapeXml(produtos.preco) +
+      marko_escapeXml(produtosCarrinho.qtde) +
       "</td><td style=\"padding-left: 15px;\" 15px>" +
-      marko_escapeXml(produtos.preco) +
+      marko_escapeXml(produtosCarrinho.valTotal) +
+      "</td><td style=\"padding-left: 15px;\" 15px>" +
+      marko_escapeXml(produtosCarrinho.valTotalCompra) +
       "</td></tr>");
   });
 
@@ -44,7 +46,7 @@ function render(input, out, __component, component, state) {
 
   init_components_tag({}, out);
 
-  await_reorderer_tag({}, out, __component, "43");
+  await_reorderer_tag({}, out, __component, "47");
 
   out.w("</body></html>");
 }
