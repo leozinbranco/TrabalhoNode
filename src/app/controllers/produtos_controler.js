@@ -29,42 +29,39 @@ class ProdutosControler
     listaProdutosCarrinho()
     {
         return function(req, res){
+<<<<<<< HEAD
 
             UsuariosDAO.validaAcessoUsuario(req.body.cpf,req.body.senha);
             //if (req.session.cpf){
+=======
+            if (req.session.login){
+>>>>>>> parent of 467f010... consegui aparecer o carrinho
             ProdutosDAO.listagemProdutosCarrinho(function(error, resultados){
-                console.log("RESULTADOS ========>   " + resultados);
+                console.log(resultados)
                 res.marko(
                     require('../views/produtos/listagemCarrinho.marko'),
                 {
-                    produtosCarrinho: resultados  //produtosCarrinho = resultado da consulta
-                    
+                    produtos: resultados
                 }
                 )
             })
-        //}
-        /*else{
+        }
+        else{
             res.send("<h1>PRIMEIRAMENTE MEU IRMAO FAZ LOGIN AE </h1>");
-        }*/
+        }
         }
     }
 
-    inserirProdutoCarrinho()
+    inserirProdutoCarrinhoCONTROLER()
     {
-            return function(req, res){
-                console.log("ENTROU NO INSERIR PRODUTO CARRINHO");
-            // if (req.session.cpf) {
-                const id_produto = req.params.idProd;
-                //console.log(id_produto + " <============ ESSE E O ID PRODUTO");
-                        ProdutosDAO.inserirProdutosCarrinhoBD(id_produto),
-                        console.log(" NA TEORIA INSERIU "),
-                        require('../views/produtos/listagemCarrinho.marko')
-                        res.redirect('/carrinho');
-        /* }
-            else { res.send("<h1>PRIMEIRAMENTE, FAÇA LOGIN!</h1>");  }
-            }*/
-            }
-            
+        return function(req, res){
+            if (req.session.cpf) {
+                res.marko(
+                    ProdutosDAO.inserirProdutosCarrinhoBD(),
+                    require('../views/clientes/listagemCarrinho.marko'));
+        }
+        else { res.send("<h1>PRIMEIRAMENTE, FAÇA LOGIN!</h1>");  }
+        }
     }
 }
     

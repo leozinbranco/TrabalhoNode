@@ -15,6 +15,7 @@ var db = require('../../config/database');
 module.exports = (app) => {
 
     //***************ROTAS***************//
+   
     app.get('/', usuarioControlador.exibeFormAcesso()
     );
 
@@ -30,8 +31,8 @@ module.exports = (app) => {
     app.post('/validaAcessoUsuario',usuarioControlador.validaAcessoUsuarioLogin());
 
     app.post('/registroUsuarioBD',usuarioControlador.inserirUsuario());
+
     
-    app.get('/inserirProdCarrinhos/:idProd',produtosControlador.inserirProdutoCarrinho()); 
 
 
 
