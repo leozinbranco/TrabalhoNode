@@ -26,6 +26,7 @@ class ProdutosDAO
 
     listagemProdutosCarrinho(callback)
     {
+      console.log("=============ENTROU EM LISTAGEMPRODUTOSCARRINHO==============");
       var sql = 'SELECT nome, qtde, valTotal, valTotalCompra FROM CARRINHO';
       console.log(sql);
       this._db.query(sql,
@@ -38,12 +39,20 @@ class ProdutosDAO
 
     
 
-    inserirProdutosCarrinhoBD(produto)
+    inserirProdutosCarrinhoBD(idProduto)//TA FALTANDO O CPF
     {
-      return new Promise((resolve, reject) => {
-        var sql = "insert into carrinho() values('"+ produto.cpf + "', '" + produto.codProduto + "', '" + produto.qtde + "', '"+
-        produto.preco + "', '" + produto.valTotalCompra + "')"
+      return new Promise((resolve, reject) => {   
+        //var sqlValorTotal = "select SUM(valTotal) from carrinho ";
+        //var sqlProdutoPreco = "select preco from produto where codProduto = " + idProduto + "";
+        //var sqlDescricao = "select descricao from produto where codProduto = " + idProduto + "";
+        //var sqlFoto = "select foto from produto where codProduto = " + idProduto + "";
+        //var sqlcodCategoria = "select codCategoria from produto where codProduto = " + idProduto + "";
+        //var sqlInsere = "insert into carrinho(codProduto, qtde, valTotal, valTotalCompra, nome, foto) values('" + idProduto + "', '" + 1 + "', '"+
+        //sqlProdutoPreco + "', '" + sqlValorTotal + "', '" + sqlDescricao +"', '"+ sqlFoto + "')";
+        console.log(idProduto + "<<<<=============== ESSE É TB");
+        var sqlInsere = "insert into carrinho(codProduto, qtde, valTotal, valTotalCompra, foto, nome)VALUES((select codProduto from produto where codProduto = "+ idProduto +"),1,(SELECT preco from produto where codProduto = "+ idProduto +"),0,(select foto from produto where codProduto = "+ idProduto +"),(select descricao from produto where codProduto = "+ idProduto +")) "
         this._db.query(sqlInsere,
+          
           function(erro) {
             if(erro)
             {
