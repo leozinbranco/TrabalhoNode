@@ -68,13 +68,15 @@ class ProdutosDAO
     excluirProdutosCarrinhoBD(idProduto)
     {
       return new Promise((resolve, reject) => {
-        sqlExclui = "delete * from carrinho where codProduto = " + idProduto + "";
+        var sqlExclui = "DELETE FROM CARRINHO WHERE codProdCarrinho = " + idProduto + "";
+        console.log(idProduto);
+        console.log(sqlExclui);
         this._db.query(sqlExclui,
           function(erro){
             if(erro)
             {
               console.log(erro);
-              return reject("Inclusão de produto no carrinho NÃO foi concluida!");
+              return reject("EXCLUSÃO de produto no carrinho NÃO foi concluida!");
             }
             console.log("DEU RESOLVE NO EXCLUIR!!!!!!!!!!!");
             resolve();

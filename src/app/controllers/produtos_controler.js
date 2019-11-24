@@ -69,8 +69,8 @@ class ProdutosControler
     {
         return function(req, res){
             console.log("/n/n/n============== ENTROU NO EXCLUI PRODUTO CARRINHO ===============/n/n/n");
-            const id_produto = req.params.idProd;
-            ProdutosDAO.excluirProdutoCarrinho(id_produto),
+            const id_produto = req.params.codProdCarrinho;
+            ProdutosDAO.excluirProdutosCarrinhoBD(id_produto),
             console.log(id_produto + "<==============   ID PRODUTO"),
             require('../views/produtos/listagemCarrinho.marko')
             res.redirect('/produtos');

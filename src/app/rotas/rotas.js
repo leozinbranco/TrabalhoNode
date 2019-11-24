@@ -24,9 +24,7 @@ module.exports = (app) => {
     app.get('/carrinho',produtosControlador.listaProdutosCarrinho());
 
     //app.get()
-    app.get('/removeProdutoCarrinho/:codProdCarrinho',function(){
-        console.log("ELE TA VINDO AQ OU N");
-    });
+    app.get('/removeProdutoCarrinho/:codProdCarrinho',produtosControlador.excluirProdutoCarrinho());
     //,produtosControlador.excluirProdutoCarrinho());
     
     app.post('/validaAcessoUsuario',usuarioControlador.validaAcessoUsuarioLogin());
