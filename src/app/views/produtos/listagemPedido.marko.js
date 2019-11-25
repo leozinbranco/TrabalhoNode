@@ -42,33 +42,11 @@ function render(input, out, __component, component, state) {
       "</td></form></tr>");
   });
 
-  out.w("</tbody></table><table class=\"table table-bordered\"> <thead><tr><th>Produto</th><th>Foto</th><th>Quantidade</th><th>Preço Unitário</th><th>Preço Total</th><th></th></tr></thead><tbody id=\"myTable\">");
-
-  var $for$1 = 0;
-
-  marko_forEach(data.produtosCarrinho, function(produtosCarrinho) {
-    var $keyScope$1 = "[" + (($for$1++) + "]");
-
-    out.w("<tr><form" +
-      marko_attr("action", "/removeProdutoCarrinho/" + produtosCarrinho.codProdCarrinho) +
-      " method=\"get\"><td>" +
-      marko_escapeXml(produtosCarrinho.nome) +
-      "</td><td><img" +
-      marko_attr("src", produtosCarrinho.foto) +
-      " alt=\"prod\" class=\"img-thumbnail\" style=\"height: auto; width: 20%; align-self: center;\"></td><td style=\"padding-left: 15px;\">" +
-      marko_escapeXml(produtosCarrinho.qtde) +
-      "</td><td style=\"padding-left: 15px;\">" +
-      marko_escapeXml(produtosCarrinho.valTotal) +
-      "</td><td style=\"padding-left: 15px;\">" +
-      marko_escapeXml(produtosCarrinho.valTotalCompra) +
-      "</td><td><a><button type=\"submit\" class=\"btn btn-secondary mx-auto\" style=\" margin-left: 80px; height: 50 px; align-self: center;\">Remover Produto</button></a></td></form></tr>");
-  });
-
   out.w("</tbody></table><nav aria-label=\"Navegação de pagina\"><ul class=\"pagination justify-content-center\"><li class=\"page-item disabled\"><a class=\"page-link\" href=\"#\" tabindex=\"-1\">Anterior</a></li><li class=\"page-item\"><a class=\"page-link\" href=\"#\">1</a></li><li class=\"page-item\"><a class=\"page-link\" href=\"#\">2</a></li><li class=\"page-item\"><a class=\"page-link\" href=\"#\">3</a></li><li class=\"page-item\"><a class=\"page-link\" href=\"#\">Próximo</a></li></ul></nav>");
 
   init_components_tag({}, out);
 
-  await_reorderer_tag({}, out, __component, "68");
+  await_reorderer_tag({}, out, __component, "47");
 
   out.w("</body></html>");
 }
