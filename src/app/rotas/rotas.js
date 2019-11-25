@@ -37,8 +37,7 @@ module.exports = (app) => {
     app.get('/removeProdutoCarrinho/:codProdCarrinho',produtosControlador.excluirProdutoCarrinho());
     //,produtosControlador.excluirProdutoCarrinho());
     
-    app.post('/validaAcessoUsuario',function(req,res)
-    {console.log(req.body)});
+    app.post('/validaAcessoUsuario',usuarioControlador.validaAcessoUsuarioLogin());
 
     app.post('/registroUsuarioBD',usuarioControlador.inserirUsuario());
     

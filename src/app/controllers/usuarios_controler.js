@@ -48,6 +48,7 @@ class UsuariosControler
             console.log(login, senha);
             UsuariosDAO.validaAcessoUsuario(req.body.cpf,req.body.senha)
                 .then( dados => {
+                    console.log(dados);
                     if (dados.length > 0) {
                         // criando 2 variaveis de sessao: CPF e SENHA
                         req.session.cpf = req.body.cpf;
@@ -55,12 +56,16 @@ class UsuariosControler
                         //req.session.login = dados.cpf;
                         console.log("Variavel de Sessao CPF = " + req.session.cpf);
                         console.log("Variavel de Sessao SENHA = " + req.session.senha);
-                        res.redirect('/login');
+                        res.redirect('/carrinho');
                         alert('Logado com sucesso!');
+                    }
+                    else{
+                        alert("Campos fornecidos inválidos!");
                     }
             })
             
-            .catch(erro => res.redirect('/'));
+            .catch(erro => res.redirect('/')
+            );
             console.log('Erro no login ');
             }
     }

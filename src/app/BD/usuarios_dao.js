@@ -1,7 +1,9 @@
+var db = require('../../config/database'); 
+
 class UsuariosDAO 
 {
   // construtor da classe
-    constructor(db) 
+    constructor() 
     {
         this._db = db;
     }
@@ -10,12 +12,13 @@ class UsuariosDAO
             return new Promise((resolve, reject) => {
             console.log("CPF DA VALIDACAO = " + cpf);
             console.log("SENHA DA VALIDACAO = " + senha);
-            var sqlCons = "SELECT * FROM USUARIOS WHERE cpf='" + cpf +
+            var sqlCons = "SELECT * FROM USUARIO WHERE cpf='" + cpf +
                 "' and senha='" + senha + "'";
             console.log(sqlCons);
             this._db.query(sqlCons, function (erro,resultado) {
                 // aqui estou checando se o retorno do SELECT trouxe dados
-                console.log(resultado);
+                console.log(resultado + " <======== resultado");
+                console.log(resultado.length);
                 if (resultado.length > 0) {
                 var dados = resultado.length;
                 console.log("fez login");
@@ -24,6 +27,7 @@ class UsuariosDAO
                 }
                 else { 
                     console.log(erro);
+                    
                     return reject('ACESSO NEGADO!');
                 }
             });
@@ -54,4 +58,4 @@ class UsuariosDAO
 
 }
 
-module.exports = new UsuariosDAO();
+module.exports = new UsuariosDAO;
