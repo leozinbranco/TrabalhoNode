@@ -9,8 +9,7 @@ class ProdutosControler
 
     listaProdutos(){
         return function(req, res){
-
-        
+            
             ProdutosDAO.listagemProdutos(function(error, resultados){
                 console.log(resultados)
                 res.marko(   
@@ -28,7 +27,9 @@ class ProdutosControler
     listaProdutosCarrinho()
     {
         return function(req, res){
-          //  if (req.session.login){
+           if (req.session.cpf){
+            console.log("Variavel de Sessao CPF = " + req.session.cpf);
+            console.log("Variavel de Sessao SENHA = " + req.session.senha);
             ProdutosDAO.listagemProdutosCarrinho(function(error, resultados){
                 console.log("RESULTADOS ========>   " + resultados[0]);
                 res.marko(
@@ -40,47 +41,56 @@ class ProdutosControler
                 }
                 )
             })
-        //}
-        /*else{
-            res.send("<h1>PRIMEIRAMENTE MEU IRMAO FAZ LOGIN AE </h1>");
-        }*/
+        }
+        else{
+            res.send("<h1>PRIMEIRAMENTE FAÇA LOGIN! </h1>");
+        }
         }
     }
 
-    listaPedidos()
+    listaProdutosPedidos()
     {
-        /*return function(req, res){
-            //  if (req.session.login){
-            ProdutosDAO.listagemProdutosCarrinho(function(error, resultados){
-                console.log("RESULTADOS ========>   " + resultados[0]);
-                res.marko(
-                
-                    require('../views/produtos/listagemCarrinho.marko'),
-                {
-                      produtosCarrinho: resultados  //produtosCarrinho = resultado da consulta
+        return function(req, res){
+            if (req.session.cpf){
+                console.log("Variavel de Sessao CPF = " + req.session.cpf);
+                console.log("Variavel de Sessao SENHA = " + req.session.senha);
+                ProdutosDAO.listagemProdutosPedido(function(error, resultados){
+                    res.marko(
                     
-                }
-                )
-            }) */
-    }
+                        require('../views/produtos/listagemPedido.marko'),
+                    {
+                        produtosPedido: resultados  //produtosCarrinho = resultado da consulta
+                        
+                    }
+                    )
+                })
+            }
+            else{
+                res.send("<h1>PRIMEIRAMENTE FAÇA LOGIN! </h1>");
+            }
+            }
+        }
+    
+
 
     inserirProdutoCarrinho()
     {
             return function(req, res){
                 console.log("ENTROU NO INSERIR PRODUTO CARRINHO");
-            // if (req.session.cpf) {
+            if (req.session.cpf) {
                 const id_produto = req.params.idProd;
                 //console.log(id_produto + " <============ ESSE E O ID PRODUTO");
-                        ProdutosDAO.inserirProdutosCarrinhoBD(id_produto),
+                        ProdutosDAO.inserirProdutosCarrinhoBD(id_produto, req.session.cpf),
                         console.log(" NA TEORIA INSERIU "),
                         require('../views/produtos/listagemCarrinho.marko')
                         res.redirect('/carrinho');
-        /* }
-            else { res.send("<h1>PRIMEIRAMENTE, FAÇA LOGIN!</h1>");  }
-            }*/
+        }
+            else { res.send("<h1>PRIMEIRAMENTE, FAÇA LOGIN!</h1>");  
             }
-            
+        }
     }
+            
+    
 
     excluirProdutoCarrinho()
     {

@@ -23,8 +23,27 @@ class UsuariosControler
         }
     }
 
+    excluirSessions()
+    {
+        return function(req,res){
+            if(req.session.cpf)
+            {
+                req.session.cpf = null;
+                req.session.senha = null;
+                console.log("CPF NULO : "+ req.session.cpf);
+                console.log("SENHA NULA : "+ req.session.senha);
 
-    validaAcessoUsuarioCarrinho() {
+                res.redirect("/");
+            }
+            else
+            {
+                res.send("<h1>VOCÊ NÃO ESTÁ LOGADO!</h1>");
+            }
+        }
+    }
+
+
+    /*validaAcessoUsuarioCarrinho() {
         return function(req, res) {
             UsuariosDAO.validaAcessoUsuario(req.body.cpf,req.body.senha)
                 .then(dados => {
@@ -40,16 +59,16 @@ class UsuariosControler
             })
             .catch(erro => res.redirect('/'));
             }
-        }
+        }*/
 
     validaAcessoUsuarioLogin() {
         return function(req, res) {
-            const {login, senha} = req.body;
-            console.log(login, senha);
+            const {cpf, senha} = req.body;
+            console.log(cpf, senha);
             UsuariosDAO.validaAcessoUsuario(req.body.cpf,req.body.senha)
                 .then( dados => {
                     console.log(dados);
-                    if (dados.length > 0) {
+                    if (dados > 0) {
                         // criando 2 variaveis de sessao: CPF e SENHA
                         req.session.cpf = req.body.cpf;
                         req.session.senha = req.body.senha;
@@ -59,13 +78,11 @@ class UsuariosControler
                         res.redirect('/carrinho');
                         alert('Logado com sucesso!');
                     }
-                    else{
-                        alert("Campos fornecidos inválidos!");
-                    }
-            })
-            
-            .catch(erro => res.redirect('/')
+                    
+            }).catch(erro => res.redirect('/')
             );
+            
+            
             console.log('Erro no login ');
             }
     }

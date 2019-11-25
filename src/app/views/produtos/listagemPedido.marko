@@ -24,6 +24,8 @@
                 <li class="nav-item">
                 <a class="nav-link mx-4" href="/registroUsuario">Registre-se</a>
                 </li>
+
+                <a class="nav-link mx-4" href="/deslogar" style="width:100px;  height: 40px; position: relative; left: 700px;">Deslogar</a>
             </ul>
             
             </nav>
@@ -35,65 +37,22 @@
             <tr>
                 <th scope="col">#</th>
                 <th scope="col">Pedido</th>
+                <th scope="col">Foto </th>
                 <th scope="col">Valor</th>
                 <th scope="col">Código do Pedido</th>
-                <th scope="col">Status da Entrega </th>
             </tr>
             </thead>
-            <tr for(produtosCarrinho in data.produtosCarrinho)>
-                <form action="/removeProdutoCarrinho/${produtosCarrinho.codProdCarrinho}" method="get">
-                    <td >${produtosCarrinho.nome}</td>
-                    <td><img src=produtosCarrinho.foto alt="prod" class="img-thumbnail" style="height: auto; width: 20%; align-self: center;" ></td>
-                    <td style="padding-left: 15px;" >${produtosCarrinho.qtde}</td>
-                    <td style="padding-left: 15px;" >${produtosCarrinho.valTotal}</td>
-                    <td style="padding-left: 15px;">${produtosCarrinho.valTotalCompra}</td>
-                    <td>
-                        <a>
-                        <button type="submit" class="btn btn-secondary mx-auto" style=" margin-left: 80px; height: 50 px; align-self: center;"  >Remover Produto</button>
-                        </a>
-                    </td>
+            <tbody id="myTable">
+            <tr for(produtosPedido in data.produtosPedido)>
+                <form action="/removeProdutoCarrinho/${produtosPedido.codProdCarrinho}" method="get">
+                    <td >${produtosCarrinho.descricao}</td>
+                    <td><img src=produtosPedido.foto alt="prod" class="img-thumbnail" style="height: auto; width: 20%; align-self: center;" ></td>
+                    <td style="padding-left: 15px;" >${produtosPedido.preco}</td>
+                    <td style="padding-left: 15px;" >${produtosPedido.codPedido}</td>
                 </form>
             </tr>
             </tbody>
         </table>
-
-
-
-
-
-
-    <table class="table table-bordered"> 
-    <thead>
-    <tr>
-        <th>Produto</th>
-        <th>Foto</th>
-        <th>Quantidade</th>
-        <th>Preço Unitário</th>
-        <th>Preço Total</th>
-        <th></th>
-    </tr>
-    </thead>
-    <tbody id="myTable">
-    <tr for(produtosCarrinho in data.produtosCarrinho)>
-    <form action="/removeProdutoCarrinho/${produtosCarrinho.codProdCarrinho}" method="get">
-        <td >${produtosCarrinho.nome}</td>
-        <td><img src=produtosCarrinho.foto alt="prod" class="img-thumbnail" style="height: auto; width: 20%; align-self: center;" ></td>
-        <td style="padding-left: 15px;" >${produtosCarrinho.qtde}</td>
-        <td style="padding-left: 15px;" >${produtosCarrinho.valTotal}</td>
-        <td style="padding-left: 15px;">${produtosCarrinho.valTotalCompra}</td>
-        <td>
-            <a>
-            <button type="submit" class="btn btn-secondary mx-auto" style=" margin-left: 80px; height: 50 px; align-self: center;"  >Remover Produto</button>
-            </a>
-        </td>
-    </form>
-
-    </tr>
-    </tbody>
-    </table>
-    
-
-
 
     <nav aria-label="Navegação de pagina">
 <ul class="pagination justify-content-center">

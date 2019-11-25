@@ -37,9 +37,24 @@ class ProdutosDAO
         })
     }
 
+    listagemProdutosPedido(callback)
+    { 
+      var sql = 'SELECT P.PRECO ,p.foto ,P.descricao, PE.codPedido, PE.CODPRODUTO, PE.QTDE FROM PEDIDO PE, PRODUTO P WHERE P.CODPRODUTO = PE.CODPRODUTO AND '
+      console.log(sql);
+      this._db.query(sql,
+          (erro,resultados) =>
+          {
+            callback(erro, resultados)
+            console.log(resultados)
+            console.log(erro)
+          }
+      )
+
+    }
+
     
 
-    inserirProdutosCarrinhoBD(idProduto)//TA FALTANDO O CPF
+    inserirProdutosCarrinhoBD(idProduto, cpf)//TA FALTANDO O CPF
     {
       return new Promise((resolve, reject) => {   
         //var sqlValorTotal = "select SUM(valTotal) from carrinho ";
@@ -49,8 +64,9 @@ class ProdutosDAO
         //var sqlcodCategoria = "select codCategoria from produto where codProduto = " + idProduto + "";
         //var sqlInsere = "insert into carrinho(codProduto, qtde, valTotal, valTotalCompra, nome, foto) values('" + idProduto + "', '" + 1 + "', '"+
         //sqlProdutoPreco + "', '" + sqlValorTotal + "', '" + sqlDescricao +"', '"+ sqlFoto + "')";
+        
         console.log(idProduto + "<<<<=============== ESSE É TB");
-        var sqlInsere = "insert into carrinho(codProduto, qtde, valTotal, valTotalCompra, foto, nome)VALUES((select codProduto from produto where codProduto = "+ idProduto +"),1,(SELECT preco from produto where codProduto = "+ idProduto +"),0,(select foto from produto where codProduto = "+ idProduto +"),(select descricao from produto where codProduto = "+ idProduto +")) "
+        var sqlInsere = "insert into carrinho(codProduto, cpf, qtde, valTotal, valTotalCompra, foto, nome)VALUES((select codProduto from produto where codProduto = "+ idProduto +"),"+cpf+",1,(SELECT preco from produto where codProduto = "+ idProduto +"),0,(select foto from produto where codProduto = "+ idProduto +"),(select descricao from produto where codProduto = "+ idProduto +")) "
         this._db.query(sqlInsere,
           
           function(erro) {

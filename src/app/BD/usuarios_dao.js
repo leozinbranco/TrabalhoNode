@@ -17,13 +17,14 @@ class UsuariosDAO
             console.log(sqlCons);
             this._db.query(sqlCons, function (erro,resultado) {
                 // aqui estou checando se o retorno do SELECT trouxe dados
-                console.log(resultado + " <======== resultado");
+                console.log(resultado[0] + " <======== resultado");
                 console.log(resultado.length);
                 if (resultado.length > 0) {
                 var dados = resultado.length;
                 console.log("fez login");
+                console.log(resultado,    dados);
                 resolve(dados);
-                console.log(resultado);
+                
                 }
                 else { 
                     console.log(erro);

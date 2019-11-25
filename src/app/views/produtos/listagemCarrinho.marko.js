@@ -18,7 +18,7 @@ var marko_template = module.exports = require("marko/src/html").t(__filename),
 function render(input, out, __component, component, state) {
   var data = input;
 
-  out.w("<html><head><link rel=\"stylesheet\" href=\"https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css\" integrity=\"sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T\" crossorigin=\"anonymous\"><script src=\"https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js\" integrity=\"sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM\" crossorigin=\"anonymous\"></script><title>Carrinho</title></head><nav class=\"navbar navbar-expand-sm bg-dark navbar-dark\"><ul class=\"navbar-nav\"><li class=\"nav-item \"><a class=\"nav-link mx-4\" href=\"/\">Login</a></li><li class=\"nav-item\"><i class=\"fas fa-shopping-cart\"></i><a class=\"nav-link mx-4\" href=\"/produtos\">Listagem Produtos</a></li><li class=\"nav-item active\"><a class=\"nav-link mx-4\" href=\"/carrinho\">Carrinho</a></li><li class=\"nav-item\"><a class=\"nav-link mx-4\" href=\"/pedidos\">Pedidos Feitos</a></li><li class=\"nav-item\"><a class=\"nav-link mx-4\" href=\"/registroUsuario\">Registre-se</a></li></ul></nav><body>");
+  out.w("<html><head><link rel=\"stylesheet\" href=\"https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css\" integrity=\"sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T\" crossorigin=\"anonymous\"><script src=\"https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js\" integrity=\"sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM\" crossorigin=\"anonymous\"></script><title>Carrinho</title></head><nav class=\"navbar navbar-expand-sm bg-dark navbar-dark\"><ul class=\"navbar-nav\"><li class=\"nav-item \"><a class=\"nav-link mx-4\" href=\"/\">Login</a></li><li class=\"nav-item\"><i class=\"fas fa-shopping-cart\"></i><a class=\"nav-link mx-4\" href=\"/produtos\">Listagem Produtos</a></li><li class=\"nav-item active\"><a class=\"nav-link mx-4\" href=\"/carrinho\">Carrinho</a></li><li class=\"nav-item\"><a class=\"nav-link mx-4\" href=\"/pedidos\">Pedidos Feitos</a></li><li class=\"nav-item\"><a class=\"nav-link mx-4\" href=\"/registroUsuario\">Registre-se</a></li><a class=\"nav-link mx-4\" href=\"/deslogar\" style=\"width:100px;  height: 40px; position: relative; left: 700px;\">Deslogar</a></ul></nav><body>");
 
   component_globals_tag({}, out);
 
@@ -41,14 +41,14 @@ function render(input, out, __component, component, state) {
       marko_escapeXml(produtosCarrinho.valTotal) +
       "</td><td style=\"padding-left: 15px;\">" +
       marko_escapeXml(produtosCarrinho.valTotalCompra) +
-      "</td><td><a><button type=\"submit\" class=\"btn btn-secondary mx-auto\" style=\" margin-left: 80px; height: 50 px; align-self: center;\">Remover Produto</button></a></td></form></tr>");
+      "</td><td><a><button type=\"submit\" class=\"btn btn-secondary mx-auto\" style=\" margin-left: 80px; height: 50 px; align-self: center;\">Remover Produto</button></a><form action=\"/inserirPedido\" method=\"get\"><a><button type=\"submit\" class=\"btn btn-secondary mx-auto\" style=\" margin-left: 80px; height: 50 px; align-self: center;\">Fazer Pedido</button></a></form></td></form></tr>");
   });
 
   out.w("</tbody></table><nav aria-label=\"Navegação de pagina\"><ul class=\"pagination justify-content-center\"><li class=\"page-item disabled\"><a class=\"page-link\" href=\"#\" tabindex=\"-1\">Anterior</a></li><li class=\"page-item\"><a class=\"page-link\" href=\"#\">1</a></li><li class=\"page-item\"><a class=\"page-link\" href=\"#\">2</a></li><li class=\"page-item\"><a class=\"page-link\" href=\"#\">3</a></li><li class=\"page-item\"><a class=\"page-link\" href=\"#\">Próximo</a></li></ul></nav>");
 
   init_components_tag({}, out);
 
-  await_reorderer_tag({}, out, __component, "51");
+  await_reorderer_tag({}, out, __component, "55");
 
   out.w("</body></html>");
 }

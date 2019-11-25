@@ -18,7 +18,7 @@ var marko_template = module.exports = require("marko/src/html").t(__filename),
 function render(input, out, __component, component, state) {
   var data = input;
 
-  out.w("<html><head><link rel=\"stylesheet\" href=\"https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css\" integrity=\"sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T\" crossorigin=\"anonymous\"><script src=\"https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js\" integrity=\"sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM\" crossorigin=\"anonymous\"></script><title>Lista dos Produtos</title></head><nav class=\"navbar navbar-expand-sm bg-dark navbar-dark\"><ul class=\"navbar-nav\"><li class=\"nav-item \"><a class=\"nav-link mx-4\" href=\"/\">Login</a></li><li class=\"nav-item active\"><i class=\"fas fa-shopping-cart\"></i><a class=\"nav-link mx-4\" href=\"/produtos\">Listagem Produtos</a></li><li class=\"nav-item\"><a class=\"nav-link mx-4\" href=\"/carrinho\">Carrinho</a></li><li class=\"nav-item\"><a class=\"nav-link mx-4\" href=\"/pedidos\">Pedidos Feitos</a></li><li class=\"nav-item\"><a class=\"nav-link mx-4\" href=\"/registroUsuario\">Registre-se</a></li></ul></nav><body>");
+  out.w("<html><head><link rel=\"stylesheet\" href=\"https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css\" integrity=\"sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T\" crossorigin=\"anonymous\"><script src=\"https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js\" integrity=\"sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM\" crossorigin=\"anonymous\"></script><title>Lista dos Produtos</title></head><nav class=\"navbar navbar-expand-sm bg-dark navbar-dark\"><ul class=\"navbar-nav\"><li class=\"nav-item \"><a class=\"nav-link mx-4\" href=\"/\">Login</a></li><li class=\"nav-item active\"><i class=\"fas fa-shopping-cart\"></i><a class=\"nav-link mx-4\" href=\"/produtos\">Listagem Produtos</a></li><li class=\"nav-item\"><a class=\"nav-link mx-4\" href=\"/carrinho\">Carrinho</a></li><li class=\"nav-item\"><a class=\"nav-link mx-4\" href=\"/pedidos\">Pedidos Feitos</a></li><li class=\"nav-item\"><a class=\"nav-link mx-4\" href=\"/registroUsuario\">Registre-se</a></li><a class=\"nav-link mx-4\" href=\"/deslogar\" style=\"width:100px;  height: 40px; position: relative; left: 700px;\">Deslogar</a></ul></nav><body>");
 
   component_globals_tag({}, out);
 
@@ -46,7 +46,7 @@ function render(input, out, __component, component, state) {
 
   init_components_tag({}, out);
 
-  await_reorderer_tag({}, out, __component, "46");
+  await_reorderer_tag({}, out, __component, "47");
 
   out.w("</body></html>");
 }

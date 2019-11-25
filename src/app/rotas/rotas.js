@@ -33,6 +33,8 @@ module.exports = (app) => {
 
     app.get('/carrinho',produtosControlador.listaProdutosCarrinho());
 
+    app.get('/pedidos', produtosControlador.listaProdutosPedidos());
+
     //app.get()
     app.get('/removeProdutoCarrinho/:codProdCarrinho',produtosControlador.excluirProdutoCarrinho());
     //,produtosControlador.excluirProdutoCarrinho());
@@ -43,10 +45,11 @@ module.exports = (app) => {
     
     app.get('/inserirProdCarrinhos/:idProd',produtosControlador.inserirProdutoCarrinho()); 
 
+    app.get('/deslogar',usuarioControlador.excluirSessions());
 
 
 
 
-// Evitar problema com o CORS
-   
+
+
 }
