@@ -9,10 +9,18 @@ const usuarioControlador = require('../controllers/usuarios_controler');
 
 // instância do BD configurado
 var db = require('../../config/database');
-//const loginControl = new loginControlador(db)
+//const loginControl = new loginControlador(db);
 //const loginControler = new UsuariosControler();
 
 module.exports = (app) => {
+
+    app.use((req, res, next) => {
+        res.header('Access-Control-Allow-Origin', '*');
+        res.header('Access-Control-Allow-Origin', "http://localhost");
+        res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
+        res.header('Access-Control-Allow-Headers', 'Content-Type');
+        next();
+        });
 
     //***************ROTAS***************//
     app.get('/', usuarioControlador.exibeFormAcesso());
@@ -21,13 +29,16 @@ module.exports = (app) => {
     
     app.get('/produtos',produtosControlador.listaProdutos());
 
+    //app.get('/pedidos',produtosControlador.listaPedidos());
+
     app.get('/carrinho',produtosControlador.listaProdutosCarrinho());
 
     //app.get()
     app.get('/removeProdutoCarrinho/:codProdCarrinho',produtosControlador.excluirProdutoCarrinho());
     //,produtosControlador.excluirProdutoCarrinho());
     
-    app.post('/validaAcessoUsuario',usuarioControlador.validaAcessoUsuarioLogin());
+    app.post('/validaAcessoUsuario',function(req,res)
+    {console.log(req.body)});
 
     app.post('/registroUsuarioBD',usuarioControlador.inserirUsuario());
     
@@ -38,11 +49,5 @@ module.exports = (app) => {
 
 
 // Evitar problema com o CORS
-    app.use((req, res, next) => {
-    res.header('Access-Control-Allow-Origin', '*');
-    res.header('Access-Control-Allow-Origin', "http://localhost");
-    res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
-    res.header('Access-Control-Allow-Headers', 'Content-Type');
-    next();
-    });
+   
 }

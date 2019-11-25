@@ -47,6 +47,23 @@ class ProdutosControler
         }
     }
 
+    listaPedidos()
+    {
+        /*return function(req, res){
+            //  if (req.session.login){
+            ProdutosDAO.listagemProdutosCarrinho(function(error, resultados){
+                console.log("RESULTADOS ========>   " + resultados[0]);
+                res.marko(
+                
+                    require('../views/produtos/listagemCarrinho.marko'),
+                {
+                      produtosCarrinho: resultados  //produtosCarrinho = resultado da consulta
+                    
+                }
+                )
+            }) */
+    }
+
     inserirProdutoCarrinho()
     {
             return function(req, res){
@@ -76,6 +93,8 @@ class ProdutosControler
             res.redirect('/produtos');
         }
     }
+
+    
 }
     
       /*      if(req.session.login) {  //se eu estiver logado 

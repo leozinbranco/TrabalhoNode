@@ -19,7 +19,7 @@ class UsuariosDAO
                 if (resultado.length > 0) {
                 var dados = resultado.length;
                 console.log("fez login");
-                resolve(resultado);
+                resolve(dados);
                 console.log(resultado);
                 }
                 else { 
@@ -33,8 +33,10 @@ class UsuariosDAO
     registrarNovoUsuario(usuario)
     {
         return new Promise((resolve, reject) => {
+            console.log(usuario);
             var sqlInsere = "INSERT INTO usuario(cpf, senha, nome, celular, telFixo, email, dataNasc) VALUES('" + usuario.cpf +"', '" + usuario.senha + "', '" + usuario.nome+ 
             "', '"+ usuario.celular + "', '" +usuario.telFixo + "', '"+ usuario.email + "', '" + usuario.dataNasc +"')";
+            console.log(sqlInsere);
             this._db.query(sqlInsere,
                 function(erro) {
                 if(erro)

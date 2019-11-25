@@ -65,6 +65,32 @@ class ProdutosDAO
       });
     }
 
+    inserirPedidosBD(idProduto)
+    {
+      return new Promise((resolve, reject) => {   
+        //var sqlValorTotal = "select SUM(valTotal) from carrinho ";
+        //var sqlProdutoPreco = "select preco from produto where codProduto = " + idProduto + "";
+        //var sqlDescricao = "select descricao from produto where codProduto = " + idProduto + "";
+        //var sqlFoto = "select foto from produto where codProduto = " + idProduto + "";
+        //var sqlcodCategoria = "select codCategoria from produto where codProduto = " + idProduto + "";
+        //var sqlInsere = "insert into carrinho(codProduto, qtde, valTotal, valTotalCompra, nome, foto) values('" + idProduto + "', '" + 1 + "', '"+
+        //sqlProdutoPreco + "', '" + sqlValorTotal + "', '" + sqlDescricao +"', '"+ sqlFoto + "')";
+        var sqlInsere = "insert into pedido(codUsuario, codProduto, qtde)VALUES(1,"+ idProduto +",1)" + 
+        "insert into itemPedido values()";
+        this._db.query(sqlInsere,
+          
+          function(erro) {
+            if(erro)
+            {
+              console.log(erro);
+              return reject("Inclusão de produto no carrinho NÃO foi concluida!"); 
+            }
+            resolve();
+          })
+    
+      });
+    }
+
     excluirProdutosCarrinhoBD(idProduto)
     {
       return new Promise((resolve, reject) => {

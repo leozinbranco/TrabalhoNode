@@ -2,7 +2,7 @@
     <head>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-    <title>Carrinho</title>
+    <title>Pedidos</title>
     </head>
 
     <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
@@ -15,10 +15,10 @@
                 <a class="nav-link mx-4" href="/produtos">Listagem Produtos</a>
                 
                 </li>
-                <li class="nav-item active">
+                <li class="nav-item">
                 <a class="nav-link mx-4" href="/carrinho">Carrinho</a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item active">
                 <a class="nav-link mx-4" href="/pedidos">Pedidos Feitos</a>
                 </li>
                 <li class="nav-item">
@@ -30,7 +30,38 @@
 
     <body>
 
-    
+        <table class="table table-dark">
+            <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Pedido</th>
+                <th scope="col">Valor</th>
+                <th scope="col">Código do Pedido</th>
+                <th scope="col">Status da Entrega </th>
+            </tr>
+            </thead>
+            <tr for(produtosCarrinho in data.produtosCarrinho)>
+                <form action="/removeProdutoCarrinho/${produtosCarrinho.codProdCarrinho}" method="get">
+                    <td >${produtosCarrinho.nome}</td>
+                    <td><img src=produtosCarrinho.foto alt="prod" class="img-thumbnail" style="height: auto; width: 20%; align-self: center;" ></td>
+                    <td style="padding-left: 15px;" >${produtosCarrinho.qtde}</td>
+                    <td style="padding-left: 15px;" >${produtosCarrinho.valTotal}</td>
+                    <td style="padding-left: 15px;">${produtosCarrinho.valTotalCompra}</td>
+                    <td>
+                        <a>
+                        <button type="submit" class="btn btn-secondary mx-auto" style=" margin-left: 80px; height: 50 px; align-self: center;"  >Remover Produto</button>
+                        </a>
+                    </td>
+                </form>
+            </tr>
+            </tbody>
+        </table>
+
+
+
+
+
+
     <table class="table table-bordered"> 
     <thead>
     <tr>

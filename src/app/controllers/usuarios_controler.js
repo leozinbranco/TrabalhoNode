@@ -44,14 +44,15 @@ class UsuariosControler
 
     validaAcessoUsuarioLogin() {
         return function(req, res) {
-            console.log(dados);
+            const {login, senha} = req.body;
+            console.log(login, senha);
             UsuariosDAO.validaAcessoUsuario(req.body.cpf,req.body.senha)
                 .then( dados => {
                     if (dados.length > 0) {
                         // criando 2 variaveis de sessao: CPF e SENHA
                         req.session.cpf = req.body.cpf;
                         req.session.senha = req.body.senha;
-                        req.session.login = dados.cpf;
+                        //req.session.login = dados.cpf;
                         console.log("Variavel de Sessao CPF = " + req.session.cpf);
                         console.log("Variavel de Sessao SENHA = " + req.session.senha);
                         res.redirect('/login');
@@ -67,6 +68,7 @@ class UsuariosControler
         inserirUsuario()
         {
             return function(req, res){
+                console.log(req.body + "<===============");
                         UsuariosDAO.registrarNovoUsuario(req.body)
                         .then(res.redirect('/'))
                         .catch(erro => console.log(erro));

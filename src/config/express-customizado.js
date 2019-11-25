@@ -39,7 +39,7 @@ var opcoes = {
     user:'root',
     password:'',
     database:'nodevesp'
-   }
+}
 var session_store = new express_store(opcoes);
 
 
