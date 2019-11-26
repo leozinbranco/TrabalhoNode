@@ -56,14 +56,17 @@ class ProdutosControler
                 console.log("Variavel de Sessao SENHA = " + req.session.senha);
                 ProdutosDAO.listagemProdutosPedido(function(error, resultados){
                     res.marko(
-                    
+                        
                         require('../views/produtos/listagemPedido.marko'),
                     {
                         produtosPedido: resultados  //produtosCarrinho = resultado da consulta
-                        
+                           
                     }
-                    )
+                    
+                    );
                 })
+                
+                    
             }
             else{
                 res.send("<h1>PRIMEIRAMENTE FAÇA LOGIN! </h1>");
@@ -83,6 +86,22 @@ class ProdutosControler
                         ProdutosDAO.inserirProdutosCarrinhoBD(id_produto, req.session.cpf),
                         console.log(" NA TEORIA INSERIU "),
                         require('../views/produtos/listagemCarrinho.marko')
+                        res.redirect('/carrinho');
+        }
+            else { res.send("<h1>PRIMEIRAMENTE, FAÇA LOGIN!</h1>");  
+            }
+        }
+    }
+
+    inserirPedido()
+    {
+            return function(req, res){
+                console.log("ENTROU NO INSERIR PEDIDO");
+            if (req.session.cpf) {
+                const id_produto = req.params.idProd;
+                //console.log(id_produto + " <============ ESSE E O ID PRODUTO");
+                        ProdutosDAO.inserirPedidoBD(id_produto, req.session.cpf),
+                        require('../views/produtos/listagemPedido.marko')
                         res.redirect('/carrinho');
         }
             else { res.send("<h1>PRIMEIRAMENTE, FAÇA LOGIN!</h1>");  

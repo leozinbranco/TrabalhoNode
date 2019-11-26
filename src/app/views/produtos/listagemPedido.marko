@@ -44,11 +44,16 @@
             </thead>
             <tbody id="myTable">
             <tr for(produtosPedido in data.produtosPedido)>
-                <form action="/removeProdutoCarrinho/${produtosPedido.codProdCarrinho}" method="get">
-                    <td >${produtosCarrinho.descricao}</td>
-                    <td><img src=produtosPedido.foto alt="prod" class="img-thumbnail" style="height: auto; width: 20%; align-self: center;" ></td>
-                    <td style="padding-left: 15px;" >${produtosPedido.preco}</td>
-                    <td style="padding-left: 15px;" >${produtosPedido.codPedido}</td>
+                <form action="/" method="get">
+                    <td >${produtosCarrinho.p.descricao}</td>
+                    <td><img src=produtosPedido.p.foto alt="prod" class="img-thumbnail" style="height: auto; width: 20%; align-self: center;" ></td>
+                    <td style="padding-left: 15px;" >${produtosPedido.pe.preco}</td>
+                    <td style="padding-left: 15px;" >${produtosPedido.pe.codPedido}</td>
+                    <td>
+                        <a>
+                        <button type="submit" class="btn btn-secondary mx-auto" style=" margin-left: 80px; height: 50 px; align-self: center;"  >Remover Produto</button>
+                        </a>
+                    </td>
                 </form>
             </tr>
             </tbody>

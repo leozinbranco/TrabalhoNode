@@ -29,24 +29,22 @@ function render(input, out, __component, component, state) {
   marko_forEach(data.produtosPedido, function(produtosPedido) {
     var $keyScope$0 = "[" + (($for$0++) + "]");
 
-    out.w("<tr><form" +
-      marko_attr("action", "/removeProdutoCarrinho/" + produtosPedido.codProdCarrinho) +
-      " method=\"get\"><td>" +
-      marko_escapeXml(produtosCarrinho.descricao) +
+    out.w("<tr><form action=\"/\" method=\"get\"><td>" +
+      marko_escapeXml(produtosCarrinho.p.descricao) +
       "</td><td><img" +
-      marko_attr("src", produtosPedido.foto) +
+      marko_attr("src", produtosPedido.p.foto) +
       " alt=\"prod\" class=\"img-thumbnail\" style=\"height: auto; width: 20%; align-self: center;\"></td><td style=\"padding-left: 15px;\">" +
-      marko_escapeXml(produtosPedido.preco) +
+      marko_escapeXml(produtosPedido.pe.preco) +
       "</td><td style=\"padding-left: 15px;\">" +
-      marko_escapeXml(produtosPedido.codPedido) +
-      "</td></form></tr>");
+      marko_escapeXml(produtosPedido.pe.codPedido) +
+      "</td><td><a><button type=\"submit\" class=\"btn btn-secondary mx-auto\" style=\" margin-left: 80px; height: 50 px; align-self: center;\">Remover Produto</button></a></td></form></tr>");
   });
 
   out.w("</tbody></table><nav aria-label=\"Navegação de pagina\"><ul class=\"pagination justify-content-center\"><li class=\"page-item disabled\"><a class=\"page-link\" href=\"#\" tabindex=\"-1\">Anterior</a></li><li class=\"page-item\"><a class=\"page-link\" href=\"#\">1</a></li><li class=\"page-item\"><a class=\"page-link\" href=\"#\">2</a></li><li class=\"page-item\"><a class=\"page-link\" href=\"#\">3</a></li><li class=\"page-item\"><a class=\"page-link\" href=\"#\">Próximo</a></li></ul></nav>");
 
   init_components_tag({}, out);
 
-  await_reorderer_tag({}, out, __component, "47");
+  await_reorderer_tag({}, out, __component, "50");
 
   out.w("</body></html>");
 }

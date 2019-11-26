@@ -39,7 +39,7 @@ class ProdutosDAO
 
     listagemProdutosPedido(callback)
     { 
-      var sql = 'SELECT P.PRECO ,p.foto ,P.descricao, PE.codPedido, PE.CODPRODUTO, PE.QTDE FROM PEDIDO PE, PRODUTO P WHERE P.CODPRODUTO = PE.CODPRODUTO AND '
+      var sql = 'SELECT P.PRECO ,p.foto ,P.descricao, PE.codPedido, PE.CODPRODUTO, PE.QTDE FROM PEDIDO PE, PRODUTO P WHERE P.CODPRODUTO = PE.CODPRODUTO'
       console.log(sql);
       this._db.query(sql,
           (erro,resultados) =>

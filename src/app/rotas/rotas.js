@@ -38,12 +38,17 @@ module.exports = (app) => {
     //app.get()
     app.get('/removeProdutoCarrinho/:codProdCarrinho',produtosControlador.excluirProdutoCarrinho());
     //,produtosControlador.excluirProdutoCarrinho());
+    app.get('/removePedido/:codPedido',produtosControlador.excluirProdutoCarrinho());
+    
     
     app.post('/validaAcessoUsuario',usuarioControlador.validaAcessoUsuarioLogin());
 
     app.post('/registroUsuarioBD',usuarioControlador.inserirUsuario());
     
     app.get('/inserirProdCarrinhos/:idProd',produtosControlador.inserirProdutoCarrinho()); 
+
+    app.get('/inserirPedido/:idProd',produtosControlador.inserirProdutoCarrinho()); 
+
 
     app.get('/deslogar',usuarioControlador.excluirSessions());
 
