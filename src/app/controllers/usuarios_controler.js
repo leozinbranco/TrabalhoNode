@@ -17,10 +17,19 @@ class UsuariosControler
 
     exibeFormRegistroUsuario() {
         return function(req, res){
-            res.marko(
-            require('../views/usuarios/registrarUsuario.marko'));
-        
+            if(req.session.cpf)
+            {
+                res.send("<h1>Para entrar em outra conta, primeiro deslogue nessa!</h1>");
+            }
+            else{
+            
+                res.marko(
+                require('../views/usuarios/registrarUsuario.marko'));
+            
+                
+            }
         }
+        
     }
 
     excluirSessions()
@@ -76,7 +85,7 @@ class UsuariosControler
                         console.log("Variavel de Sessao CPF = " + req.session.cpf);
                         console.log("Variavel de Sessao SENHA = " + req.session.senha);
                         res.redirect('/carrinho');
-                        alert('Logado com sucesso!');
+                        //alert('Logado com sucesso!');
                     }
                     
             }).catch(erro => res.redirect('/')
@@ -90,10 +99,13 @@ class UsuariosControler
         inserirUsuario()
         {
             return function(req, res){
+            
                 console.log(req.body + "<===============");
                         UsuariosDAO.registrarNovoUsuario(req.body)
                         .then(res.redirect('/'))
                         .catch(erro => console.log(erro));
+                
+                
                     
             }
         }

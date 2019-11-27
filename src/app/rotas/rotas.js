@@ -47,7 +47,7 @@ module.exports = (app) => {
     
     app.get('/inserirProdCarrinhos/:idProd',produtosControlador.inserirProdutoCarrinho()); 
 
-    app.get('/inserirPedido/:idProd',produtosControlador.inserirProdutoCarrinho()); 
+    app.get('/inserirPedido/:codPedido',produtosControlador.inserirProdutoCarrinho()); 
 
 
     app.get('/deslogar',usuarioControlador.excluirSessions());

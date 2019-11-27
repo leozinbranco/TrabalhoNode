@@ -45,10 +45,12 @@
             <tbody id="myTable">
             <tr for(produtosPedido in data.produtosPedido)>
                 <form action="/" method="get">
-                    <td >${produtosCarrinho.p.descricao}</td>
-                    <td><img src=produtosPedido.p.foto alt="prod" class="img-thumbnail" style="height: auto; width: 20%; align-self: center;" ></td>
-                    <td style="padding-left: 15px;" >${produtosPedido.pe.preco}</td>
-                    <td style="padding-left: 15px;" >${produtosPedido.pe.codPedido}</td>
+                    <td >${produtosCarrinho.preco}</td>
+                    <td><img src=produtosPedido.foto alt="prod" class="img-thumbnail" style="height: auto; width: 20%; align-self: center;" ></td>
+                    <td style="padding-left: 15px;" >${produtosPedido.descricao}</td>
+                    <td style="padding-left: 15px;" >${produtosPedido.codPedido}</td>
+                    <td style="padding-left: 15px;" >${produtosPedido.codProduto}</td>
+                    <td style="padding-left: 15px;" >${produtosPedido.qtde}</td>
                     <td>
                         <a>
                         <button type="submit" class="btn btn-secondary mx-auto" style=" margin-left: 80px; height: 50 px; align-self: center;"  >Remover Produto</button>
@@ -59,19 +61,19 @@
             </tbody>
         </table>
 
-    <nav aria-label="Navegação de pagina">
-<ul class="pagination justify-content-center">
-    <li class="page-item disabled">
-    <a class="page-link" href="#" tabindex="-1">Anterior</a>
-    </li>
-    <li class="page-item"><a class="page-link" href="#">1</a></li>
-    <li class="page-item"><a class="page-link" href="#">2</a></li>
-    <li class="page-item"><a class="page-link" href="#">3</a></li>
-    <li class="page-item">
-    <a class="page-link" href="#">Próximo</a>
-    </li>
-</ul>
-</nav>
+            <nav aria-label="Navegação de pagina">
+        <ul class="pagination justify-content-center">
+            <li class="page-item disabled">
+            <a class="page-link" href="#" tabindex="-1">Anterior</a>
+            </li>
+            <li class="page-item"><a class="page-link" href="#">1</a></li>
+            <li class="page-item"><a class="page-link" href="#">2</a></li>
+            <li class="page-item"><a class="page-link" href="#">3</a></li>
+            <li class="page-item">
+            <a class="page-link" href="#">Próximo</a>
+            </li>
+        </ul>
+        </nav>
 
 
     </body>

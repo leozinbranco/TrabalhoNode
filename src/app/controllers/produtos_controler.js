@@ -55,15 +55,15 @@ class ProdutosControler
                 console.log("Variavel de Sessao CPF = " + req.session.cpf);
                 console.log("Variavel de Sessao SENHA = " + req.session.senha);
                 ProdutosDAO.listagemProdutosPedido(function(error, resultados){
+                    console.log(error);
                     res.marko(
-                        
                         require('../views/produtos/listagemPedido.marko'),
                     {
                         produtosPedido: resultados  //produtosCarrinho = resultado da consulta
-                           
                     }
                     
                     );
+                    console.log(resultados[0] +  "          DEU RES.MARKO");
                 })
                 
                     

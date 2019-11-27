@@ -30,13 +30,17 @@ function render(input, out, __component, component, state) {
     var $keyScope$0 = "[" + (($for$0++) + "]");
 
     out.w("<tr><form action=\"/\" method=\"get\"><td>" +
-      marko_escapeXml(produtosCarrinho.p.descricao) +
+      marko_escapeXml(produtosCarrinho.preco) +
       "</td><td><img" +
-      marko_attr("src", produtosPedido.p.foto) +
+      marko_attr("src", produtosPedido.foto) +
       " alt=\"prod\" class=\"img-thumbnail\" style=\"height: auto; width: 20%; align-self: center;\"></td><td style=\"padding-left: 15px;\">" +
-      marko_escapeXml(produtosPedido.pe.preco) +
+      marko_escapeXml(produtosPedido.descricao) +
       "</td><td style=\"padding-left: 15px;\">" +
-      marko_escapeXml(produtosPedido.pe.codPedido) +
+      marko_escapeXml(produtosPedido.codPedido) +
+      "</td><td style=\"padding-left: 15px;\">" +
+      marko_escapeXml(produtosPedido.codProduto) +
+      "</td><td style=\"padding-left: 15px;\">" +
+      marko_escapeXml(produtosPedido.qtde) +
       "</td><td><a><button type=\"submit\" class=\"btn btn-secondary mx-auto\" style=\" margin-left: 80px; height: 50 px; align-self: center;\">Remover Produto</button></a></td></form></tr>");
   });
 
@@ -44,7 +48,7 @@ function render(input, out, __component, component, state) {
 
   init_components_tag({}, out);
 
-  await_reorderer_tag({}, out, __component, "50");
+  await_reorderer_tag({}, out, __component, "52");
 
   out.w("</body></html>");
 }
