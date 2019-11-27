@@ -45,13 +45,13 @@
     </tr>
     </thead>
     <tbody id="myTable">
-    <tr for(produtosCarrinho in data.produtosCarrinho)>
+    <tr for(produtosCarrinho in data.produtosCarrinho) >
     <form action="/removeProdutoCarrinho/${produtosCarrinho.codProdCarrinho}" method="get">
         <td >${produtosCarrinho.nome}</td>
         <td><img src=produtosCarrinho.foto alt="prod" class="img-thumbnail" style="height: auto; width: 20%; align-self: center;" ></td>
         <td style="padding-left: 15px;" >${produtosCarrinho.qtde}</td>
         <td style="padding-left: 15px;" >${produtosCarrinho.valTotal}</td>
-        <td style="padding-left: 15px;">${produtosCarrinho.valTotalCompra}</td>
+        <td style="padding-left: 15px;">{vtotalSum.total}</td>
         <td>
             <a>
             <button type="submit" class="btn btn-secondary  btn-block ml-2" style=" margin-left: 80px; height: 60 px; width: 150px; align-self: center; position: relative; top: 40px;"  >Remover Produto</button>

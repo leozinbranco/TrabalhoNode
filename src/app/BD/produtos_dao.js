@@ -13,44 +13,60 @@ class ProdutosDAO
     // método de SELECT  na tabela Produtos
     listagemProdutos(callback) 
     {
-      var sql =  'SELECT codProduto, preco, descricao, foto, codCategoria FROM PRODUTO';
-      console.log(sql);
-      this._db.query(sql,
-          (erro, resultados) =>{
-              callback(erro, resultados)
-              console.log(resultados)
-              console.log(erro) //null nenhum erro
+     
+        var sql =  'SELECT codProduto, preco, descricao, foto, codCategoria FROM PRODUTO';
+        console.log(sql);
+        this._db.query(sql,
+            (erro, resultados) =>{
+                
+                  callback(erro, resultados)
+                  console.log(resultados)
+                  console.log(erro)
             }
-      )
+        )
+    
     }
 
-    listagemProdutosCarrinho(callback)
+    listagemProdutosCarrinho()
     {
+      return new Promise((resolve, reject) => {   
       console.log("=============ENTROU EM LISTAGEMPRODUTOSCARRINHO==============");
       var sql = 'SELECT nome, qtde, valTotal, valTotalCompra, codProdCarrinho,foto FROM CARRINHO';
       console.log(sql);
       this._db.query(sql,
         (erro, resultados) =>{
-          callback(erro, resultados)
-          console.log(resultados)
-          console.log(erro) //null nenhum erro 
-        })
+          if(erro)
+            {return reject("Listagem falhou!");}
+
+            //callback(erro, resultados)
+            resolve(resultados);
+            console.log(resultados)
+            console.log(erro)
+      })
+      });
     }
 
-    listagemProdutosPedido(callback)
+    listagemProdutosPedido()
     { 
-      var sql = 'SELECT P.PRECO ,p.foto ,P.descricao, PE.codPedido, PE.CODPRODUTO, PE.QTDE FROM PEDIDO PE, PRODUTO P WHERE P.CODPRODUTO = PE.CODPRODUTO'
+      return new Promise((resolve, reject) => {   
+        var sql = 'SELECT P.PRECO ,p.foto ,P.descricao, PE.codPedido, PE.CODPRODUTO, PE.QTDE FROM PEDIDO PE, PRODUTO P WHERE P.CODPRODUTO = PE.CODPRODUTO'
       console.log(sql);
       this._db.query(sql,
           (erro,resultados) =>
           {
-            callback(erro, resultados)
-            console.log(resultados)
+            if(erro)
+            {return reject("Listagem falhou!");}
+              console.log(resultados + "RESULTADOS NO DAO ")
+            //callback(erro, resultados)
+            resolve(resultados);
+            
             console.log(erro)
           }
       )
-
+      });
     }
+      
+
 
     
 

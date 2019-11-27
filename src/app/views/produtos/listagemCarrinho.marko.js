@@ -39,9 +39,7 @@ function render(input, out, __component, component, state) {
       marko_escapeXml(produtosCarrinho.qtde) +
       "</td><td style=\"padding-left: 15px;\">" +
       marko_escapeXml(produtosCarrinho.valTotal) +
-      "</td><td style=\"padding-left: 15px;\">" +
-      marko_escapeXml(produtosCarrinho.valTotalCompra) +
-      "</td><td><a><button type=\"submit\" class=\"btn btn-secondary  btn-block ml-2\" style=\" margin-left: 80px; height: 60 px; width: 150px; align-self: center; position: relative; top: 40px;\">Remover Produto</button></a></td><td><a href=\"/inserirPedido\"><button type=\"submit\" class=\"btn btn-primary  btn-block ml-2\" style=\" margin-left: 80px; height: 60 px; width: 150px; align-self: center; position: relative; top: 40px;\">Fazer Pedido</button></a></td></form></tr>");
+      "</td><td style=\"padding-left: 15px;\">{vtotalSum.total}</td><td><a><button type=\"submit\" class=\"btn btn-secondary  btn-block ml-2\" style=\" margin-left: 80px; height: 60 px; width: 150px; align-self: center; position: relative; top: 40px;\">Remover Produto</button></a></td><td><a href=\"/inserirPedido\"><button type=\"submit\" class=\"btn btn-primary  btn-block ml-2\" style=\" margin-left: 80px; height: 60 px; width: 150px; align-self: center; position: relative; top: 40px;\">Fazer Pedido</button></a></td></form></tr>");
   });
 
   out.w("</tbody></table><nav aria-label=\"Navegação de pagina\"><ul class=\"pagination justify-content-center\"><li class=\"page-item disabled\"><a class=\"page-link\" href=\"#\" tabindex=\"-1\">Anterior</a></li><li class=\"page-item\"><a class=\"page-link\" href=\"#\">1</a></li><li class=\"page-item\"><a class=\"page-link\" href=\"#\">2</a></li><li class=\"page-item\"><a class=\"page-link\" href=\"#\">3</a></li><li class=\"page-item\"><a class=\"page-link\" href=\"#\">Próximo</a></li></ul></nav>");

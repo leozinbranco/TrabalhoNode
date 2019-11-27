@@ -31,20 +31,37 @@ class ProdutosControler
             console.log("Variavel de Sessao CPF = " + req.session.cpf);
             console.log("Variavel de Sessao SENHA = " + req.session.senha);
             ProdutosDAO.listagemProdutosCarrinho(function(error, resultados){
-                console.log("RESULTADOS ========>   " + resultados[0]);
-                res.marko(
-                
-                    require('../views/produtos/listagemCarrinho.marko'),
-                {
-                    produtosCarrinho: resultados  //produtosCarrinho = resultado da consulta
+                console.log("RESULTADOS ========>   " + resultados)
+                console.log(error)
+                    }).then(resultados =>{
+
+                        var total = 0; 
+                        for(var i = 0; i < resultados.length; i++)
+                        {
+                            console.log(resultados[i].valTotal + " TA NO FOR !!!!!!");
+                            total += resultados[i].valTotal;
+                            
+                        }
+                        console.log(total);
+
+                        res.marko(
+                        require('../views/produtos/listagemCarrinho.marko'),
+                        {
+                            produtosCarrinho: resultados,  //produtosCarrinho = resultado da consulta
+                            vtotalSum: total
+                            
+                        })
+                        .catch(error => res.send(error));
+                        
+                    })
                     
-                }
-                )
-            })
+                    
+            
+                
+                
         }
-        else{
-            res.send("<h1>PRIMEIRAMENTE FAÇA LOGIN! </h1>");
-        }
+        else{  res.send("<h1>PRIMEIRAMENTE FAÇA LOGIN! </h1>");}
+            
         }
     }
 
@@ -119,7 +136,7 @@ class ProdutosControler
             ProdutosDAO.excluirProdutosCarrinhoBD(id_produto),
             console.log(id_produto + "<==============   ID PRODUTO"),
             require('../views/produtos/listagemCarrinho.marko')
-            res.redirect('/produtos');
+            res.redirect('/carrinho');
         }
     }
 
